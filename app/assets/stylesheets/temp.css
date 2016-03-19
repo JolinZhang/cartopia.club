@@ -1,0 +1,76 @@
+
+/* temp */
+/*css on search.html*/
+/* Set gray background color and 100% height */
+/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+.row.content {height: 1500px;}
+
+/* Set gray background color and 100% height */
+.sidenav {
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+     .sidenav {
+       height: auto;
+       padding: 15px;
+     }
+     .row.content {height: auto;}
+}
+
+ul  li{
+  list-style: none;
+}
+.nav a{
+  color:#333;
+}
+
+
+
+
+/*login_register*/
+.form-signin{
+  padding :100px;
+}
+.form-register{
+  padding :100px;
+}
+.form-control{
+  margin-bottom: 10px;
+}
+
+
+
+
+/*car_info.css*/
+.inner{
+  text-align: center;
+}
+.postprofile{
+  display:inline-block;
+  width:30%;
+  vertical-align: top;
+  background-color:  #ececec;
+  border-radius: 5px;
+
+}
+.postbody{
+  display:inline-block;
+  width:60%;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+.pfile{
+ color: #414141;
+ line-height: 21px;
+ font-size: 14px;
+ font-family: Tahoma, Arial, Helvetica, sans-serif;
+}
+.pbody{
+  color: #414141;
+  line-height: 21px;
+  font-size: 14px;
+  font-family: Tahoma, Arial, Helvetica, sans-serif;
+}
