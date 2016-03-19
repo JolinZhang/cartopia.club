@@ -1,18 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CartopiaClub</title>
+  <title>Cartopia</title>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
 </head>
 <body>
 
+<nav class="navbar navbar-inverse">
+ <div class="container-fluid">
+   <div class="navbar-header">
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+     </button>
+     <a class="navbar-brand" href="#">Logo</a>
+   </div>
+   <div class="collapse navbar-collapse" id="myNavbar">
+     <ul class="nav navbar-nav">
+       <li class="active"><a href="index.php">Home</a></li>
+       <li><a href="search.php">Search </a></li>
+       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Infomation<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Buy Car</a></li>
+          <li><a href="#">Car Insurance</a></li>
+          <li><a href="#">Car Inspection</a></li>
+        </ul>
+      </li>
+       <li><a href="#">FQA</a></li>
+       <li><a href="#">Administrators</a></li>
+     </ul>
+     <ul class="nav navbar-nav navbar-right">
+       <li><a href="login_register.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+     </ul>
+   </div>
+ </div>
+</nav>
+
 <%= yield %>
 
+<footer class="container-fluid text-center">
+<p>contact us</p>
+</footer>
+
 </body>
+
 </html>
