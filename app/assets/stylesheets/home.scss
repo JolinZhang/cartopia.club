@@ -5,25 +5,11 @@
 .banner {
 	height: 0;
 	padding-bottom: 400px;
-	background-image: url('home/banner_crv.jpg');
-	background-position: center;
+	background-image: url('home/banner_crv2.jpg');
+	background-position: left-center;
 	background-size: cover;
 }
 
-.carousel-inner img {
-  width: 100%; /* Set width to 100% */
-  margin: auto;
-  min-height:200px;
-}
-
-/* Hide the carousel text when the screen is less than 600 pixels wide */
-@media (max-width: 600px) {
-  .carousel-caption {
-    display: none;
-  }
-}
-
-/* Responsive image */
 img.img-responsive {
   width: 100%;
 }
