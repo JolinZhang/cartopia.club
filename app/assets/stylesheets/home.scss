@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.banner {
+	height: 0;
+	padding-bottom: 400px;
+	background-image: url('home/banner_crv.jpg');
+	background-position: center;
+	background-size: cover;
+}
+
 .carousel-inner img {
   width: 100%; /* Set width to 100% */
   margin: auto;
@@ -19,5 +27,3 @@
 img.img-responsive {
   width: 100%;
 }
-
-

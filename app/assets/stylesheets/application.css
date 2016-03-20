@@ -18,11 +18,12 @@
 .navbar {
   margin-bottom: 0;
   border-radius: 0;
+	background-image: none;
 }
 
 /* Add a gray background color and some padding to the footer */
 footer {
-  background-color: #555;
+  background-color: #333;
   color: white;
   padding: 15px;
 	margin-top: 15px;
