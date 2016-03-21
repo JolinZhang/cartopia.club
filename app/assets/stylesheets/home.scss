@@ -4,6 +4,7 @@
 
 .banner {
 	height: 0;
+	margin-top: -50px;
 	padding-bottom: 400px;
 	background-image: url('home/banner_crv2.jpg');
 	background-position: left-center;
@@ -13,3 +14,18 @@
 img.img-responsive {
   width: 100%;
 }
+
+.feature-title {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.feature-text {
+	margin: 15px 0;
+	min-height: 40px;
+}
+
+.col-sm-4 {
+	padding: 15px 0 0 0;
+}
+
