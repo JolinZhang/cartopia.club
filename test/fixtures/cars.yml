@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year: 1
+  make: MyString
+  model: MyString
+  mileage: 1
+  price: 1
+  contact: MyString
+  city: MyString
+  state: MyString
+  notes: MyText
+  picture: MyString
+  issold: false
+  user_id: 
+
+two:
+  year: 1
+  make: MyString
+  model: MyString
+  mileage: 1
+  price: 1
+  contact: MyString
+  city: MyString
+  state: MyString
+  notes: MyText
+  picture: MyString
+  issold: false
+  user_id: 
