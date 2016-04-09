@@ -1,3 +1,30 @@
 // Place all the styles related to the cars controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//change the color in the navigation bar
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
+	color: #333;
+}
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover{
+  color: #333;
+}
+.row{
+  margin-top: 15px;
+}
+.carlist{
+  width:100%;
+  height:200px;
+  background-color: #eee;
+  margin-bottom: 10px;
+}
+.carlist img{
+  max-width:200px;
+  width:100%;
+  height:auto;
+  margin-left:20px;
+  margin-top:30px;
+}
+.title{
+  display:inline-block;
+}

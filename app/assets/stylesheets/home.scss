@@ -1,110 +1,31 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-/*css on index.html*/
-/* Remove the navbar's default margin-bottom and rounded borders */
-.navbar {
-  margin-bottom: 0;
-  border-radius: 0;
+
+.banner {
+	height: 0;
+	margin-top: -50px;
+	padding-bottom: 400px;
+	background-image: url('home/banner_crv2.jpg');
+	background-position: left-center;
+	background-size: cover;
 }
 
-/* Add a gray background color and some padding to the footer */
-footer {
-  background-color: #555;
-  color: white;
-  padding: 15px;
-}
-
-.carousel-inner img {
-  width: 100%; /* Set width to 100% */
-  margin: auto;
-  min-height:200px;
-}
-
-/* Hide the carousel text when the screen is less than 600 pixels wide */
-@media (max-width: 600px) {
-  .carousel-caption {
-    display: none;
-  }
-}
-
-/* Responsive image */
 img.img-responsive {
   width: 100%;
 }
 
-
-/*css on search.html*/
-/* Set gray background color and 100% height */
-/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-.row.content {height: 1500px;}
-
-/* Set gray background color and 100% height */
-.sidenav {
-  background-color: #f1f1f1;
-  height: 100%;
+.feature-title {
+	font-size: 30px;
+	font-weight: bold;
 }
 
-/* On small screens, set height to 'auto' for sidenav and grid */
-@media screen and (max-width: 767px) {
-     .sidenav {
-       height: auto;
-       padding: 15px;
-     }
-     .row.content {height: auto;}
+.feature-text {
+	margin: 15px 0;
+	min-height: 40px;
 }
 
-ul  li{
-  list-style: none;
-}
-.nav a{
-  color:#333;
+.col-sm-4 {
+	padding: 15px 0 0 0;
 }
 
-
-
-
-/*login_register*/
-.form-signin{
-  padding :100px;
-}
-.form-register{
-  padding :100px;
-}
-.form-control{
-  margin-bottom: 10px;
-}
-
-
-
-
-/*car_info.css*/
-.inner{
-  text-align: center;
-}
-.postprofile{
-  display:inline-block;
-  width:30%;
-  vertical-align: top;
-  background-color:  #ececec;
-  border-radius: 5px;
-
-}
-.postbody{
-  display:inline-block;
-  width:60%;
-  background-color: #f2f2f2;
-  border-radius: 5px;
-}
-.pfile{
- color: #414141;
- line-height: 21px;
- font-size: 14px;
- font-family: Tahoma, Arial, Helvetica, sans-serif;
-}
-.pbody{
-  color: #414141;
-  line-height: 21px;
-  font-size: 14px;
-  font-family: Tahoma, Arial, Helvetica, sans-serif;
-}
