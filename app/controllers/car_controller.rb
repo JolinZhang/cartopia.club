@@ -1,4 +1,8 @@
 class CarController < ApplicationController
-	def show 
+	def list
+		@cars= Car.all
+	end
+	def new
+	
 	end
 end

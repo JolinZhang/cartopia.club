@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   root 'home#index'
 	get 'user/login' => 'user#login', as: :user_login
 	get 'user/signup' => 'user#signup', as: :user_signup
-	get 'cars/' => 'car#show', as: :car_show
+	get 'cars/' => 'car#list', as: :car_list
+  get 'cars/new' => 'car#new', as: :car_new
 
 
   # Example of regular route:

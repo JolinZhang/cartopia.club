@@ -1,0 +1,35 @@
+<div class="main">
+<%= form_for :car do |f| %>
+  <p>
+    <%= f.label :year %>
+    <%= f.text_field :year %>*
+    <%= f.label :make %>
+    <%= f.text_field :make %>*
+    <%= f.label :model %>
+    <%= f.text_field :model %>*
+    <%= f.label :mileage %>
+    <%= f.text_field :mileage %>*
+  </p>
+  <p>
+    <%= f.label :price %>
+    <%= f.text_field :price %>*
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+    <%= f.label :contact %>
+    <%= f.text_field :contact %>
+  </p>
+  <p>
+    <%= f.label :notes %>
+    <%= f.text_area :notes,cols: "100", rows: "5"%>
+  </p>
+  <p>
+    <%= f.label :issold %>
+    <%= f.select :issold,[['yes',1],['no',0]]%>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+</div>
