@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-	get 'user/login' => 'user#login', as: :user_login
-	get 'user/signup' => 'user#signup', as: :user_signup
-	post 'user/signup' => 'user#create'
+	get 'user/login' => 'user#login_form', as: :user_login
+	post 'user/login' => 'user#login'
+	delete 'user/logout' => 'user#logout', as: :user_logout
+	get 'user/signup' => 'user#signup_form', as: :user_signup
+	post 'user/signup' => 'user#signup'
 	get 'cars/' => 'car#show', as: :car_show
 
 
