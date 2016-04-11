@@ -1,5 +1,5 @@
 <div class="main">
-<%= form_for :car do |f| %>
+<%= form_for :car , url: car_create_path do |f| %>
   <p>
     <%= f.label :year %>
     <%= f.text_field :year %>*
@@ -27,6 +27,9 @@
   <p>
     <%= f.label :issold %>
     <%= f.select :issold,[['yes',1],['no',0]]%>
+  </p>
+  <p>
+    <%= f.file_field :picture%>
   </p>
   <p>
     <%= f.submit %>

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 	get 'user/signup' => 'user#signup', as: :user_signup
 	get 'cars/' => 'car#list', as: :car_list
   get 'cars/new' => 'car#new', as: :car_new
+  post 'cars/create' => 'car#create', as: :car_create
+    
 
 
   # Example of regular route:
