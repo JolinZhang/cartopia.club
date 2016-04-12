@@ -7,23 +7,14 @@
 <% end %>
 
 <%= form_for :user, url: user_signup_path do |f|%>
-	<div>
-	<%= f.text_field :username, placeholder:'Username' %>
-	</div>
+	<%= f.text_field :username, placeholder:'Username', class: 'underline_textfield' %><br>
 
-	<div>
-	<%= f.text_field :email, placeholder:'Email' %>
-	</div>
+	<%= f.text_field :email, placeholder:'Email', class: 'underline_textfield' %><br>
 
-	<div>
-	<%= f.text_field :password, placeholder:'Password' %>
-	<div>
+	<%= f.text_field :password, placeholder:'Password', class: 'underline_textfield' %><br>
 
-	<div>
-	<%= f.text_field :password_confirmation, placeholder:'Password Confirmation' %><br>
-	</div>
+	<%= f.text_field :password_confirmation, placeholder:'Password Confirmation', class: 'underline_textfield' %><br>
 
-	<div>
-	<%= f.submit %>
-	</div>
+	<%= f.submit 'SIGNUP', class: 'btn btn-default' %>
 <% end %>
+

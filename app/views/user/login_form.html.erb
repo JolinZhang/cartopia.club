@@ -5,15 +5,11 @@
 	Password Doesn't Match.
 <% end %>
 
-<%= form_for :user, url: user_login_path do |f|%>
-	<div>
-	<%= f.text_field :username, placeholder:'Username' %>
-	</div>
+<%= form_for :user, url: user_login_path, class: 'text' do |f|%>
+	<%= f.text_field :username, placeholder:'Username', class: 'underline_textfield' %><br>
 
-	<div>
-	<%= f.text_field :password, placeholder:'Password' %>
-	<div>
+	<%= f.text_field :password, placeholder:'Password', class: 'underline_textfield', type: "password" %><br>
 
-	<%= f.submit %>
-	</div>
+	<%= f.submit 'LOGIN', class: 'btn btn-default'%>
 <% end %>
+

@@ -65,3 +65,17 @@ a.navbar-brand {
 	background-color: rgba(0, 0, 0, 0);
 	border-width: 0;
 }
+
+input.underline_textfield {
+	border: none;
+	border-bottom: 1px #eee solid;
+	padding:5px;
+	margin-bottom: 15px;
+}
+input.underline_textfield:focus {
+	outline: none;
+}
+form {
+	margin-top: 15px;
+	text-align: center;
+}
