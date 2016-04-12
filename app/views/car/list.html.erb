@@ -3,7 +3,7 @@
   <% @cars.each do |car| %>
    <div class="carlist ">
     <div class="col-sm-3 ">
-      <div class=""><%= image_tag("/assets/user_car/#{car.id}.jpg", :alt => "rss feed") %></div>
+      <div class=""><%= image_tag("/assets/user_car/#{car.picture}", :alt => "rss feed") %></div>
     </div>
     <div class="col-sm-9 ">
       <div class="cartitle"><%=car.year%><%=car.make%><%=car.model%></div>

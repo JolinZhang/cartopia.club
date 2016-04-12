@@ -1,5 +1,20 @@
 <div class="main">
 <%= form_for :car , url: car_create_path do |f| %>
+
+<% if @car.errors.any? %>
+   <div id="error_explanation">
+     <h2>
+       <%= pluralize(@car.errors.count, "error") %> prohibited
+       this car from being saved:
+     </h2>
+     <ul>
+       <% @car.errors.full_messages.each do |msg| %>
+         <li><%= msg %></li>
+       <% end %>
+     </ul>
+   </div>
+ <% end %>
+
   <p>
     <%= f.label :year %>
     <%= f.text_field :year %>*
@@ -26,10 +41,14 @@
   </p>
   <p>
     <%= f.label :issold %>
-    <%= f.select :issold,[['yes',1],['no',0]]%>
+    <%= f.select :issold,[['no',0],['yes',1]]%>
   </p>
   <p>
     <%= f.file_field :picture%>
+  </p>
+  <p>
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id %>*
   </p>
   <p>
     <%= f.submit %>
