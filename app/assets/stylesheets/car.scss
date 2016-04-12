@@ -1,83 +1,88 @@
 // Place all the styles related to the car controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-//change the color in the navigation bar
-.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
-	color: #333;
-}
-.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover{
-  color: #333;
-}
-.navbar-inverse .navbar-toggle .icon-bar{
-	background-color:#333;
-}
-#myNavbar.navbar-collapse.collapse.in{
-	background-color:rgba(200, 200, 200, 1);
-	z-index: 500;
-}
-.col-sm-3.sidenav{
-	padding-left: 35px;
-	padding-right: 0px;
-}
-
-// change to row
-.row{
-  margin-top: 50px;
-}
-// css for the right car list
-.col-sm-9{
-	padding-left: 0px;
-}
+//css for car list
 .carlist{
-  width:100%;
-  height:200px;
   background-color: #eee;
-  margin-bottom: 10px;
+  margin-top: 10px;
+	display: inline-block;
 }
 
-// css for img
-.col-sm-3{
-		padding:0px;
-}
 img{
   width:100%;
   height:auto;
-	margin-top: 20px;
-}
-
-// css for text
- .carcontent{
-	  float:left;
-		max-width:400px;
 }
 .cartitle{
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 25px;
-  font-weight: 500;
-  line-height: 1.1;
-	margin:10px 5px auto 0px;
+	font-size: 1.8em;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	line-height: 1.5;
+}
+.carprice{
+	font-size: 2.4rem;
+  font-weight: bold;
+  line-height: 1.5em;
+	margin-right: 8px;
+	display: inline-block;
+}
+.carmileage{
+	font-size: 1.75rem;
+  font-weight: 600;
+	display: inline-block;
+}
+.carlocation{
+	font-size: 1.0em;
+}
+.carseller{
+	display: inline-block;
+}
+.carcontact{
+	display: inline-block;
 }
 
-// css for favoriate
-.col-sm-4{
-		padding:0px;
+
+//css for new car;
+.main{
+	text-align:center;
+	background-color: #eee;
 }
-.favoriate{
-	height:200px;
-	background-color: purple;
+
+//css for carshow
+.post{
+  background-color: #eee;
 }
-.heart{
-	float:left;
-	height:20%;
-  font-size: 25px;
-	font-weight: 200;
-	margin-top:20px;
+.postname{
+  font-weight: bold;
+  text-align: center;
 }
-.contact{
-	padding-top:50px;
-	padding-left: 20px;
-	margin-left: 30px;
-	height:200px;
-	background:green;
+.postcreatetime{
+  text-align: center;
+}
+.postupdatetime{
+  text-align: center;
+}
+.postyear{
+  display: inline-block;
+}
+.postmake{
+  display: inline-block;
+}
+.postmodel{
+  display: inline-block;
+}
+.postmileage{
+  display: inline-block;
+}
+.postprice{
+}
+.postcontact{
+  display: inline-block;
+}
+.postcity{
+  display: inline-block;
+}
+.poststate{
+  display: inline-block;
+}
+.postpicture{
+  width:60%;
 }

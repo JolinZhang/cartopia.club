@@ -1,0 +1,57 @@
+<div class="main">
+<%= form_for :car , url: car_create_path do |f| %>
+
+<% if @car.errors.any? %>
+   <div id="error_explanation">
+     <h2>
+       <%= pluralize(@car.errors.count, "error") %> prohibited
+       this car from being saved:
+     </h2>
+     <ul>
+       <% @car.errors.full_messages.each do |msg| %>
+         <li><%= msg %></li>
+       <% end %>
+     </ul>
+   </div>
+ <% end %>
+
+  <p>
+    <%= f.label :year %>
+    <%= f.text_field :year %>*
+    <%= f.label :make %>
+    <%= f.text_field :make %>*
+    <%= f.label :model %>
+    <%= f.text_field :model %>*
+    <%= f.label :mileage %>
+    <%= f.text_field :mileage %>*
+  </p>
+  <p>
+    <%= f.label :price %>
+    <%= f.text_field :price %>*
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+    <%= f.label :contact %>
+    <%= f.text_field :contact %>
+  </p>
+  <p>
+    <%= f.label :notes %>
+    <%= f.text_area :notes,cols: "100", rows: "5"%>
+  </p>
+  <p>
+    <%= f.label :issold %>
+    <%= f.select :issold,[['no',0],['yes',1]]%>
+  </p>
+  <p>
+    <%= f.file_field :picture%>
+  </p>
+  <p>
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id %>*
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+</div>
