@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row content post">
+       <div class="col-sm-3 ">
+        <div class='postname'>PostBy:<%=@car.user.username %></div>
+        <div class='postcreatetime'>createtime:<%=@car.created_at%></div>
+        <div class='postupdatetime'>updatetime:<%=@car.updated_at%></div>
+       </div>
+       <div class="col-sm-9 ">
+        <div class='postyear'>year:<%=@car.year %></div>
+        <div class='postmake'>make:<%=@car.make %></div>
+        <div class='postmodel'>model:<%=@car.model %></div>
+        <div class='postmileage'>mileage:<%=@car.mileage %></div>
+        <div class='postprice'>price:<%=@car.price%></div>
+        <div class='postissold'>issold:
+          <%if @car.issold == false %>No
+          <%else%> Yes
+          <%end%>
+        </div>
+        <div class='postcontact'>contact:<%=@car.contact%></div>
+        <div class='postcity'>city:<%=@car.city%></div>
+        <div class='poststate'>state:<%=@car.state%></div>
+        <div class='postnote'>notes:<%=@car.notes%></div>
+        <div class='postpicture'>picture:<%= image_tag("/assets/user_car/#{@car.picture}") %></div>
+
+
+       </div>
+</div>
+</div>

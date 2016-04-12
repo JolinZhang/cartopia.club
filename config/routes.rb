@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 	get 'cars/' => 'car#list', as: :car_list
   get 'cars/new' => 'car#new', as: :car_new
   post 'cars/create' => 'car#create', as: :car_create
-  get 'cars/show' =>'car#show',as: :car_show
+  get 'cars/show/:id' =>'car#show',as: :car_show
 
 
 

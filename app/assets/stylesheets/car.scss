@@ -44,5 +44,45 @@ img{
 .main{
 	text-align:center;
 	background-color: #eee;
-	
+}
+
+//css for carshow
+.post{
+  background-color: #eee;
+}
+.postname{
+  font-weight: bold;
+  text-align: center;
+}
+.postcreatetime{
+  text-align: center;
+}
+.postupdatetime{
+  text-align: center;
+}
+.postyear{
+  display: inline-block;
+}
+.postmake{
+  display: inline-block;
+}
+.postmodel{
+  display: inline-block;
+}
+.postmileage{
+  display: inline-block;
+}
+.postprice{
+}
+.postcontact{
+  display: inline-block;
+}
+.postcity{
+  display: inline-block;
+}
+.poststate{
+  display: inline-block;
+}
+.postpicture{
+  width:60%;
 }
