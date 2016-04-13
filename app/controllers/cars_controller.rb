@@ -1,6 +1,9 @@
 class CarsController < ApplicationController
   def index
-		@cars= Car.all
+		@cars = Car.all
+		@sort = params[:sort]
+		@order = params[:order]
+		@keyword = params[:search][:keyword]
 	end
 
 	def new

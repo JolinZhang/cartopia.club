@@ -11,7 +11,7 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to 'BUY', cars_path %></li>
+          <li><%= link_to 'BUY', cars_path + "?" + {sort: 0, order: 0}.to_param, method: :get %>
           <li><%= link_to 'SELL', new_car_path %></li>
           <li><%= link_to 'INFO' %></li>
           <% if did_login? %>
