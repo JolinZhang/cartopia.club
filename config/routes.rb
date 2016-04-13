@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'cars/new' => 'car#new', as: :car_new
   post 'cars/create' => 'car#create', as: :car_create
   get 'cars/show/:id' =>'car#show',as: :car_show
+  post 'cars/show/:id/comments' =>'comment#create', as: :comment_create
 
 
 

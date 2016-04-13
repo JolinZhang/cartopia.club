@@ -21,8 +21,29 @@
         <div class='poststate'>state:<%=@car.state%></div>
         <div class='postnote'>notes:<%=@car.notes%></div>
         <div class='postpicture'>picture:<%= image_tag("/assets/user_car/#{@car.picture}") %></div>
-
-
        </div>
+</div>
+<% @car.comments.each do |comment|%>
+<div class="row content">
+    <div class="col-sm-3 ">
+    </div>
+    <div class="col-sm-9">
+      <%= comment.car.user.username%>
+    </div>
+</div>
+<%end%>
+
+
+<div class="row content">
+  <div class="col-sm-3 ">
+   Add a comment
+  </div>
+  <div class="col-sm-9">
+    <%= form_for :comment,url: comment_create_path   do |f| %>
+    <%= f.text_area(:content, cols: 100,rows: 5)%>
+    <p><%=f.submit%></p>
+  <%end%>
+  </div>
+
 </div>
 </div>
