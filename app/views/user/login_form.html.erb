@@ -1,0 +1,15 @@
+<% if @login_fail == 1 %> 
+	Username Incorrect.
+<% end %>
+<% if @login_fail == 2 %> 
+	Password Doesn't Match.
+<% end %>
+
+<%= form_for :user, url: user_login_path, class: 'text' do |f|%>
+	<%= f.text_field :username, placeholder:'Username', class: 'underline_textfield' %><br>
+
+	<%= f.text_field :password, placeholder:'Password', class: 'underline_textfield', type: "password" %><br>
+
+	<%= f.submit 'LOGIN', class: 'btn btn-default'%>
+<% end %>
+

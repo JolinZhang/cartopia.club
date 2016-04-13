@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <nav class="navbar navbar-inverse">
     <div class="container">
       <div class="navbar-header">
@@ -19,3 +20,31 @@
       </div>
     </div>
 </nav>
+=======
+<nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+				<%= link_to 'CARTOPIA', root_path, class:'navbar-brand' %>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'BUY', car_show_path %></li>
+          <li><%= link_to 'SELL' %></li>
+          <li><%= link_to 'INFO' %></li>
+					<% if did_login? %>
+          <li><%= link_to current_user.username.upcase %></li>
+					<% else %>
+          <li><%= link_to 'SIGNUP', user_signup_path %></li>
+          <li><%= link_to 'LOGIN', user_login_path %></li>
+					<% end %>
+        </ul>
+      </div>
+    </div>
+</nav>
+>>>>>>> b57d4f7c6b22818b9d0e0e6f1a073c32e741660e
