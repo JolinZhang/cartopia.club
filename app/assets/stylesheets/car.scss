@@ -77,6 +77,13 @@ img{
 .postcontact{
   display: inline-block;
 }
+.postissold{
+}
+.issold{
+  display: inline-block;
+  margin-top: 0px;
+  text-align: left;
+}
 .postcity{
   display: inline-block;
 }
@@ -85,4 +92,18 @@ img{
 }
 .postpicture{
   width:60%;
+}
+//css of show comment
+.comment{
+  margin-top: 5px;
+  background-color: #eee;
+}
+.commentadd{
+  text-align:center;
+}
+.reply{
+  text-align: center;
+}
+.content_text{
+  text-align: left;
 }

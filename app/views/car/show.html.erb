@@ -11,10 +11,11 @@
         <div class='postmodel'>model:<%=@car.model %></div>
         <div class='postmileage'>mileage:<%=@car.mileage %></div>
         <div class='postprice'>price:<%=@car.price%></div>
+        <!-- label if sold -->
         <div class='postissold'>issold:
-          <%if @car.issold == false %>No
-          <%else%> Yes
-          <%end%>
+         <%= form_for @car,html:{class:"issold"},url:car_show_path do |f| %>
+            <%= f.select :issold,[['No',0],['Yes',1]]%>
+          <% end %>
         </div>
         <div class='postcontact'>contact:<%=@car.contact%></div>
         <div class='postcity'>city:<%=@car.city%></div>
@@ -23,24 +24,25 @@
         <div class='postpicture'>picture:<%= image_tag("/assets/user_car/#{@car.picture}") %></div>
        </div>
 </div>
+<!-- list the comment -->
 <% @car.comments.each do |comment|%>
-<div class="row content">
-    <div class="col-sm-3 ">
+<div class="row content comment">
+    <div class="col-sm-3 reply">
+      reply:<%= comment.user.username%><br>
+      Jointime:<%= comment.user.created_at %>
     </div>
     <div class="col-sm-9">
       <%= comment.content%>
-      <%= comment.user.username%>
     </div>
 </div>
 <%end%>
-
-
+<!-- add comment -->
 <div class="row content">
-  <div class="col-sm-3 ">
+  <div class="col-sm-3 commentadd">
    Add a comment
   </div>
-  <div class="col-sm-9">
-    <%= form_for :comment,url: comment_create_path   do |f| %>
+  <div class="col-sm-9 ">
+    <%= form_for :comment,html:{class: "content_text"}, url: comment_create_path  do |f| %>
     <%= f.text_area(:content, cols: 100,rows: 5)%>
     <p><%=f.submit%></p>
   <%end%>

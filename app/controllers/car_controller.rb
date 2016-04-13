@@ -7,8 +7,9 @@ class CarController < ApplicationController
 	end
 	def create
 		@car = Car.new(params.require(:car).permit(:year, :make, :model, :mileage, :price, :contact, :city,
-		:state,:notes,:issold))
+		:state,:notes))
 		@car.user_id = current_user.id
+		@car.issold = false
   if @car.save
 		#save picture name = userid+carid
 		uploaded_io = params[:car][:picture]
