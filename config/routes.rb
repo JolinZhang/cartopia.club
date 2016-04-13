@@ -6,11 +6,11 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  get 'user/login' => 'user#logging', as: :user_login
-  post 'user/login' => 'user#login'
-  get 'user/signup' => 'user#signing', as: :user_signup
-  post 'user/signup' => 'user#signup'
-  delete 'user/logout' => 'user#logout', as: :user_logout
+  get '/login' => 'home#logging', as: :login
+  post '/login' => 'home#login'
+  get '/signup' => 'home#signing', as: :signup
+  post '/signup' => 'home#signup'
+  delete '/logout' => 'home#logout', as: :logout
 
   get 'car/' => 'car#browse', as: :car
   get 'car/new' => 'car#new', as: :car_new
