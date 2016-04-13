@@ -1,4 +1,4 @@
-class CommentController < ApplicationController
+class CommentsController < ApplicationController
   def create
     @car = Car.find(params[:id])
     @comment = Comment.new(params.require(:comment).permit(:content))
