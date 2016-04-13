@@ -7,14 +7,15 @@ class CarController < ApplicationController
 	end
 	def create
 		@car = Car.new(params.require(:car).permit(:year, :make, :model, :mileage, :price, :contact, :city,
-		:state,:notes,:issold, :user_id))
+		:state,:notes,:issold))
+		@car.user_id = current_user.id
   if @car.save
 		#save picture name = userid+carid
 		uploaded_io = params[:car][:picture]
-		@car.picture = params[:car][:user_id]+""+@car.id.to_s+File.extname(uploaded_io.original_filename)
+		@car.picture = @car.user_id.to_s+@car.id.to_s+File.extname(uploaded_io.original_filename)
 		@car.save
 		#upload picture
-		File.open(Rails.root.join('app','assets','images','user_car',params[:car][:user_id]+""+@car.id.to_s+File.extname(uploaded_io.original_filename) ),
+		File.open(Rails.root.join('app','assets','images','user_car',@car.user_id.to_s+@car.id.to_s+File.extname(uploaded_io.original_filename) ),
 		'wb') do |file|
 			file.write(uploaded_io.read)
 		end
