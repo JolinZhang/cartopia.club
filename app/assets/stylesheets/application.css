@@ -20,7 +20,7 @@
   margin-bottom: 0;
   border-radius: 0;
 	background-image: none;
-	background-color: #333;
+	background-color: #333; 
 	border-width: 0;
 }
 
@@ -64,4 +64,18 @@ a.navbar-brand {
 .navbar-inverse .navbar-toggle, .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
 	background-color: rgba(0, 0, 0, 0);
 	border-width: 0;
+}
+
+input.underline_textfield {
+	border: none;
+	border-bottom: 1px #eee solid;
+	padding:5px;
+	margin-bottom: 15px;
+}
+input.underline_textfield:focus {
+	outline: none;
+}
+form {
+	margin-top: 15px;
+	text-align: center;
 }
