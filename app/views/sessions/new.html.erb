@@ -5,7 +5,7 @@
 	Password Doesn't Match.
 <% end %>
 
-<%= form_for :user, url: user_login_path, class: 'text' do |f|%>
+<%= form_for :session, url: login_path, class: 'text' do |f|%>
 	<%= f.text_field :username, placeholder:'Username', class: 'underline_textfield' %><br>
 
 	<%= f.text_field :password, placeholder:'Password', class: 'underline_textfield', type: "password" %><br>

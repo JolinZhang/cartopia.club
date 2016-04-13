@@ -13,7 +13,7 @@
         <div class='postprice'>price:<%=@car.price%></div>
         <!-- label if sold -->
         <div class='postissold'>issold:
-         <%= form_for @car,html:{class:"issold"},url:car_show_path do |f| %>
+         <%= form_for @car,html:{class:"issold"},url:car_path do |f| %>
             <%= f.select :issold,[['No',0],['Yes',1]]%>
           <% end %>
         </div>
@@ -42,7 +42,7 @@
    Add a comment
   </div>
   <div class="col-sm-9 ">
-    <%= form_for :comment,html:{class: "content_text"}, url: comment_create_path  do |f| %>
+    <%= form_for :comment,html:{class: "content_text"}, url: car_comments_path(@car.id)  do |f| %>
     <%= f.text_area(:content, cols: 100,rows: 5)%>
     <p><%=f.submit%></p>
   <%end%>

@@ -11,13 +11,14 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to 'BUY' %></li>
-          <li><%= link_to 'SELL' %></li>
+          <li><%= link_to 'BUY', cars_path %></li>
+          <li><%= link_to 'SELL', new_car_path %></li>
           <li><%= link_to 'INFO' %></li>
           <% if did_login? %>
           <li><%= link_to current_user.username.upcase %></li>
+          <li><%= link_to 'LOGOUT', logout_path, method: :delete%></li>
           <% else %>
-          <li><%= link_to 'SIGNUP', signup_path %></li>
+          <li><%= link_to 'SIGNUP', new_user_path %></li>
           <li><%= link_to 'LOGIN', login_path %></li>
           <% end %>
         </ul>

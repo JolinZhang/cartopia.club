@@ -6,17 +6,15 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  get '/login' => 'home#logging', as: :login
-  post '/login' => 'home#login'
-  get '/signup' => 'home#signing', as: :signup
-  post '/signup' => 'home#signup'
-  delete '/logout' => 'home#logout', as: :logout
+	get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+	delete 'logout'  => 'sessions#destroy'
 
-  get 'car/' => 'car#browse', as: :car
-  get 'car/new' => 'car#new', as: :car_new
-  post 'car/new' => 'car#create'
-  get 'car/:id' =>'car#show',as: :car_show
-  post 'car/:id/comment' =>'comment#create', as: :comment_new
+	resources :users
+	resources :cars do 
+		resources :comments
+	end
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
