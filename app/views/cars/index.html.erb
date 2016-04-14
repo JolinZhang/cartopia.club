@@ -1,3 +1,18 @@
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">SORT BY
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><%= link_to 'Post Date: Newest', cars_path + "?" + {sort: 0}.to_param %></li>
+    <li><%= link_to 'Price: Highest', cars_path + "?" + {sort: 1}.to_param %></li>
+    <li><%= link_to 'Price: Lowest', cars_path + "?" + {sort: 2}.to_param %></li>
+    <li><%= link_to 'Mileage: Highest', cars_path + "?" + {sort: 3}.to_param %></li>
+    <li><%= link_to 'Mileage: Lowest', cars_path + "?" + {sort: 4}.to_param %></li>
+    <li><%= link_to 'Year: Newest', cars_path + "?" + {sort: 5}.to_param %></li>
+    <li><%= link_to 'Year: Oldest', cars_path + "?" + {sort: 6}.to_param %></li>
+    <li><%= link_to 'Make/Model: A to Z', cars_path + "?" + {sort: 7}.to_param %></li>
+  </ul>
+</div>
+
 <div class="container-fluid">
   <div class="row content">
   <% @cars.each do |car| %>

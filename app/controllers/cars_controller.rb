@@ -1,9 +1,14 @@
 class CarsController < ApplicationController
   def index
-		@cars = Car.all
 		@sort = params[:sort]
-		@order = params[:order]
-		@keyword = params[:search][:keyword]
+		case @sort
+			when '0'
+				@cars = Car.order(:created_at)
+			when '1'
+				@cars = Car.order(price: :desc)
+			else 
+				@cars = Car.order(:created_at)
+		end
 	end
 
 	def new
