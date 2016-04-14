@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-	before_save { 
+	before_save {
 		self.email = email.downcase
-		self.username = username.downcase	
+		self.username = username.downcase
 	}
   validates :username, presence: true, length: { maximum: 20 },
 	uniqueness: { case_sensitive: false }
@@ -11,5 +11,6 @@ class User < ActiveRecord::Base
 	uniqueness: { case_sensitive: false }
 	has_secure_password
 	validates :password, presence: true, length: { minimum: 6 }
-
+  has_many :cars
+	has_many :favorites
 end

@@ -1,3 +1,40 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//css for car list
+.carlist{
+  background-color: #eee;
+  margin-top: 10px;
+	display: inline-block;
+}
+
+img{
+  width:100%;
+  height:auto;
+}
+.cartitle{
+	font-size: 1.8em;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	line-height: 1.5;
+}
+.carprice{
+	font-size: 2.4rem;
+  font-weight: bold;
+  line-height: 1.5em;
+	margin-right: 8px;
+	display: inline-block;
+}
+.carmileage{
+	font-size: 1.75rem;
+  font-weight: 600;
+	display: inline-block;
+}
+.carlocation{
+	font-size: 1.0em;
+}
+.carseller{
+	display: inline-block;
+}
+.carcontact{
+	display: inline-block;
+}

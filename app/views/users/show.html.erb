@@ -1,0 +1,24 @@
+<h3>the car this user sell</h3>
+<% current_user.cars.each do |car| %>
+ <div class="carlist ">
+  <div class="col-sm-3 ">
+    <div class=""><%= image_tag("/assets/user_car/#{car.picture}", :alt => "rss feed") %></div>
+  </div>
+  <%= link_to car_path(car.id) do %>
+  <div class="col-sm-9 ">
+    <div class="cartitle"><%=car.year%><%=car.make%><%=car.model%></div>
+    <div class="carprice">$<%=car.price%></div>
+    <div class="carmileage"><%=car.mileage%>mi</div>
+    <div class="carlocation"><%=car.state%><%=car.city%></div>
+    <div class="carseller">post by:<%=car.user.username%></div>
+    <div class="carcontact">contact:<%=car.contact%></div>
+  </div>
+  <%end %>
+</div>
+<% end %>
+
+<h3>the car this user favorite</h3>
+<% current_user.favorites.each do |favorite| %>
+<%= favorite.cars.year%>
+
+<%end%>

@@ -15,7 +15,7 @@
           <li><%= link_to 'SELL', new_car_path %></li>
           <li><%= link_to 'INFO' %></li>
           <% if did_login? %>
-          <li><%= link_to current_user.username.upcase %></li>
+          <li><%= link_to current_user.username.upcase,user_path(current_user.id)%></li>
           <li><%= link_to 'LOGOUT', logout_path, method: :delete%></li>
           <% else %>
           <li><%= link_to 'SIGNUP', new_user_path %></li>
