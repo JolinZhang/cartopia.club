@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 	format: { with: VALID_EMAIL_REGEX },
 	uniqueness: { case_sensitive: false }
 	has_secure_password
-	validates :password, presence: true, length: { minimum: 6 }
-  has_many :cars
-	has_many :favorites
+	validates :password, presence: true, length: { minimum: 6 }, if: :password
+  has_many :cars, :dependent => :destroy
+	has_many :favorites, :dependent => :destroy
 end

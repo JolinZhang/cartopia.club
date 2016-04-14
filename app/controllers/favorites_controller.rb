@@ -5,6 +5,4 @@ class FavoritesController < ApplicationController
     @favorite.car_id = params[:car_id]
     @favorite.save
   end
-  def show
-  end
 end
