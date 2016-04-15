@@ -18,9 +18,9 @@ Rails.application.routes.draw do
 
 	end
 
-  get   '/users/:id/mycars' => 'users#mycars', as: :my_cars
-  get  '/users/:id/myfav' =>'users#myfav', as: :my_fav
-  get '/user/:id/managercar' => 'users#managercar', as: :manager_cars
+  get   '/users/:id/cars' => 'users#cars', as: :user_cars
+  get  '/users/:id/favs' =>'users#favs', as: :user_favs
+  get '/cars/manage' => 'cars#manage', as: :manage_cars
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

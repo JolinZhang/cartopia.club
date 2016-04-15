@@ -33,13 +33,19 @@ class CarsController < ApplicationController
 			render 'new'
 		end
 	end
+
   def show
 		@car = Car.find(params[:id])
 	end
+
   def destroy
   	@car = Car.find(params[:id])
     @car.destroy
     redirect_to  manager_cars_path
+  end
+
+  def manage
+    @cars = Car.all
   end
 
 end

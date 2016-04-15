@@ -14,12 +14,9 @@ class UsersController < ApplicationController
   end
   def show
   end
-  def mycars
+  def cars
   end
-  def myfav
-  end
-  def managercar
-    @cars = Car.all
+  def favs
   end
   def index
     @users = User.all
