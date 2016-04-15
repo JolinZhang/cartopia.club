@@ -12,7 +12,11 @@ class CarsController < ApplicationController
 	end
 
 	def new
-		@car = Car.new
+		if did_login?
+			@car = Car.new
+		else 
+			redirect_to login_path
+		end
 	end
 
 	def create

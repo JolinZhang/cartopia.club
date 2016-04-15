@@ -1,7 +1,8 @@
+<%= render 'users/side' %>
 <% @cars.each do |car|%>
-<div class="car ">
+<div class="carlist">
  <div class="col-sm-3 ">
-   <div class=""><%= image_tag("/assets/user_car/#{car.picture}", :alt => "rss feed") %></div>
+   <div><%= image_tag("/assets/user_car/#{car.picture}", :alt => "rss feed") %></div>
  </div>
  <%= link_to car_path(car.id) do %>
  <div class="col-sm-9 ">
