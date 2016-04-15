@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-	before_save { 
+	before_save {
 		self.email = email.downcase
-		self.username = username.downcase	
+		self.username = username.downcase
 	}
   validates :username, presence: true, length: { maximum: 20 },
 	uniqueness: { case_sensitive: false }
@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 	format: { with: VALID_EMAIL_REGEX },
 	uniqueness: { case_sensitive: false }
 	has_secure_password
-	validates :password, presence: true, length: { minimum: 6 }
-
+	validates :password, presence: true, length: { minimum: 6 }, if: :password
+  has_many :cars, :dependent => :destroy
+	has_many :favorites, :dependent => :destroy
 end

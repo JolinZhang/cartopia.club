@@ -1,6 +1,14 @@
 class CarsController < ApplicationController
   def index
-		@cars= Car.all
+		@sort = params[:sort]
+		case @sort
+			when '0'
+				@cars = Car.order(:created_at)
+			when '1'
+				@cars = Car.order(price: :desc)
+			else
+				@cars = Car.order(:created_at)
+		end
 	end
 
 	def new
@@ -29,4 +37,15 @@ class CarsController < ApplicationController
   def show
 		@car = Car.find(params[:id])
 	end
+
+  def destroy
+  	@car = Car.find(params[:id])
+    @car.destroy
+    redirect_to  manager_cars_path
+  end
+
+  def manage
+    @cars = Car.all
+  end
+
 end

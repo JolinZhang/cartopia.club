@@ -10,11 +10,17 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
 	delete 'logout'  => 'sessions#destroy'
 
-	resources :users
-	resources :cars do 
+	resources :users do
+	  resources :favorites
+	end
+	resources :cars do
 		resources :comments
+
 	end
 
+  get   '/users/:id/cars' => 'users#cars', as: :user_cars
+  get  '/users/:id/favs' =>'users#favs', as: :user_favs
+  get '/cars/manage' => 'cars#manage', as: :manage_cars
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
