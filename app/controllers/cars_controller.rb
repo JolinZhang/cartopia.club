@@ -3,11 +3,23 @@ class CarsController < ApplicationController
 		@sort = params[:sort]
 		case @sort
 			when '0'
-				@cars = Car.order(:created_at)
+				@cars = Car.order(created_at: :desc)
 			when '1'
 				@cars = Car.order(price: :desc)
+			when '2'
+				@cars = Car.order(:price)
+			when '3'
+				@cars = Car.order(mileage: :desc)
+			when '4'
+				@cars = Car.order(:mileage)
+			when '5'
+				@cars = Car.order(year: :desc)
+			when '6'
+				@cars = Car.order(:year)
+			when '7'
+				@cars = Car.order(:make, :model)
 			else
-				@cars = Car.order(:created_at)
+				@cars = Car.order(created_at: :desc)
 		end
 	end
 
