@@ -28,6 +28,7 @@
       <div class="carlocation"><%=car.state%><%=car.city%></div>
       <div class="carseller">post by:<%=car.user.username%></div>
       <div class="carcontact">contact:<%=car.contact%></div>
+      <div class=""><%= link_to"Favorite", user_favorites_path(current_user.id), data: {params: {car_id: car.id}.to_param, method: :post, remote: true} %></div>
     </div>
     <%end %>
   </div>

@@ -18,7 +18,7 @@ class CarsController < ApplicationController
 				@cars = Car.order(:year)
 			when '7'
 				@cars = Car.order(:make, :model)
-			else 
+			else
 				@cars = Car.order(created_at: :desc)
 		end
 	end
@@ -49,4 +49,15 @@ class CarsController < ApplicationController
   def show
 		@car = Car.find(params[:id])
 	end
+
+  def destroy
+  	@car = Car.find(params[:id])
+    @car.destroy
+    redirect_to  manager_cars_path
+  end
+
+  def manage
+    @cars = Car.all
+  end
+
 end

@@ -1,0 +1,8 @@
+
+<h1>SideBar</h1>
+<%= link_to 'My Cars', user_cars_path%><br>
+<%= link_to 'My Favs', user_favs_path%><br>
+<% if current_user.isadmin == true%>
+<%= link_to 'Manage Cars',manage_cars_path%><br>
+<%= link_to 'Manage users', users_path%><br>
+<%end%>
