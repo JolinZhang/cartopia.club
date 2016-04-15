@@ -12,9 +12,14 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-  def cars
+  def show   
   end
-  def favs
+  def mycars
+  end
+  def myfav
+  end
+  def managercar
+    @cars = Car.all
   end
   def index
     @users = User.all
