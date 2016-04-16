@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def new
-    @user = User.new()
+		if did_login?
+			redirect_to user_cars_path(current_user)
+		else 
+			@user = User.new()
+		end
   end
   def create
     @user = User.new(params.require(:user).permit(:username, :email, :password, :password_confirmation))
@@ -11,11 +15,6 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-  end
-  def show   
-  end
-  def managercar
-    @cars = Car.all
   end
   def destroy
     @user = User.find(params[:id])
