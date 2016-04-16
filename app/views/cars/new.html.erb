@@ -1,6 +1,63 @@
 <div class="main">
 <%= form_for :car , url: cars_path do |f| %>
 
+
+  <p>
+    <%= f.label :year %>
+    <%= f.select :year,[['2016','2016'],['2015','2015'],['2014','2014'],
+    ['2013','2013'],['2012','2012'],['2011','2011'],['2010','2010'],
+    ['2009','2009'],['2008','2008'],['2007','2007'],['2006','2006'],
+    ['2005','2005'],['2004','2004'],['2003','2003'],['2002','2002'],
+    ['2001','2001'],['2000','2000'],['1999','1999'],['1998','1998'],
+    ['1997','1997'],['1996','1996'],['1995','1995']]%>
+    <%= f.label :make %>
+    <%= f.select :make,[['All Makes','All Makes'],['Acura','Acura'],['Alfa Romeo','Alfa Romeo'],
+    ['Am General','Am General'],['Aston Martin','Aston Martin'],['Audi','Audi'],
+    ['Avanti Motors','Avanti Motors'],['Bentley','Bentley'],['BMW','BMW'],
+    ['Bugatti','Bugatti'],['Buick','Buick'],['Cadillac','Cadillac'],
+    ['Chevrolet','Chevrolet'],['Chrysler','Chrysler'],['Daewoo','Daewoo'],
+    ['Dodge','Dodge'],['Ferrari','Ferrari'],['FIAT','FIAT'],['Fisker','Fisker'],
+    ['Ford','Ford'],['GMC','GMC'],['Honda','Honda'],['Hummer','Hummer'],['Hyundai','Hyundai'],
+    ['Infiniti','Infiniti'],['International','International'],['Isuzu','Isuzu'],['Jaguar','Jaguar'],
+    ['Jeep','Jeep'],['Kia','Kia'],['Koenigsegg','Koenigsegg'],['Lamborghini','Lamborghini'],
+    ['Land Rover','Land Rover'],['Lexus','Lexus'],['Lincoln','Lincoln'],['Lotus','Lotus'],
+    ['Maserati','Maserati'],['Maybach','Maybach'],['Mazda','Mazda'],['McLaren','McLaren'],
+    ['Mercedes-Benz','Mercedes-Benz'],['Mercury','Mercury'],['MINI','MINI'],['Mitsubishi','Mitsubishi'],
+    ['Morgan','Morgan'],['Nissan','Nissan'],['Oldsmobile','Oldsmobile'],['Panoz','Panoz'],
+    ['Plymouth','Plymouth'],['Pontiac','Pontiac'],['Porsche','Porsche'],['Qvale','Qvale'],
+    ['RAM','RAM'],['Rolls-Royce','Rolls-Royce'],['Saab','Saab'],['Saleen','Saleen'],
+    ['Saturn','Saturn'],['Scion','Scion'],['smart','smart'],['Spyker','Spyker'],
+    ['Subaru','Subaru'],['Suzuki','Suzuki'],['Tesla','Tesla'],['Toyota','Toyota'],
+    ['Volkswagen','Volkswagen'],['Volvo','Volvo']] %>
+    <%= f.label :model %>
+    <%= f.text_field :model %>*
+    <%= f.label :mileage %>
+    <%= f.text_field :mileage %>*
+    <%= f.label :price %>
+    <%= f.text_field :price %>*
+
+  </p>
+  <p>
+    <%= f.label :state %>
+    <%= f.text_field :state %>*
+    <%= f.label :city %>
+    <%= f.text_field :city %>*
+    <%= f.label :contact %>
+    <%= f.text_field :contact %>*
+  </p>
+  <p>
+    <%= f.label :notes %>
+    <%= f.text_area :notes,cols: "100", rows: "5"%>
+  </p>
+  <p>
+    <%= f.file_field :picture%>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
 <% if @car.errors.any? %>
    <div id="error_explanation">
      <h2>
@@ -15,35 +72,4 @@
    </div>
  <% end %>
 
-  <p>
-    <%= f.label :year %>
-    <%= f.text_field :year %>*
-    <%= f.label :make %>
-    <%= f.text_field :make %>*
-    <%= f.label :model %>
-    <%= f.text_field :model %>*
-    <%= f.label :mileage %>
-    <%= f.text_field :mileage %>*
-  </p>
-  <p>
-    <%= f.label :price %>
-    <%= f.text_field :price %>*
-    <%= f.label :state %>
-    <%= f.text_field :state %>
-    <%= f.label :city %>
-    <%= f.text_field :city %>
-    <%= f.label :contact %>
-    <%= f.text_field :contact %>
-  </p>
-  <p>
-    <%= f.label :notes %>
-    <%= f.text_area :notes,cols: "100", rows: "5"%>
-  </p>
-  <p>
-    <%= f.file_field :picture%>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
 </div>

@@ -12,9 +12,10 @@
         <div class='postmileage'>mileage:<%=@car.mileage %></div>
         <div class='postprice'>price:<%=@car.price%></div>
         <!-- label if sold -->
-        <div class='postissold'>issold:
-         <%= form_for @car,html:{class:"issold"},url:car_path do |f| %>
+        <div class='postissold'>issold:<%= @car.issold%>
+         <%= form_for :car,html:{class:"issold"},url:car_path(@car.id), method: :patch do |f| %>
             <%= f.select :issold,[['No',0],['Yes',1]]%>
+            <%= f.submit%>
           <% end %>
         </div>
         <div class='postcontact'>contact:<%=@car.contact%></div>

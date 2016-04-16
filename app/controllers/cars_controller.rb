@@ -3,30 +3,30 @@ class CarsController < ApplicationController
 		@sort = params[:sort]
 		case @sort
 			when '0'
-				@cars = Car.order(created_at: :desc)
+				@cars = Car.where(issold: false).order(created_at: :desc)
 			when '1'
-				@cars = Car.order(price: :desc)
+				@cars = Car.where(issold: false).order(price: :desc)
 			when '2'
-				@cars = Car.order(:price)
+				@cars = Car.where(issold: false).order(:price)
 			when '3'
-				@cars = Car.order(mileage: :desc)
+				@cars = Car.where(issold: false).order(mileage: :desc)
 			when '4'
-				@cars = Car.order(:mileage)
+				@cars = Car.where(issold: false).order(:mileage)
 			when '5'
-				@cars = Car.order(year: :desc)
+				@cars = Car.where(issold: false).order(year: :desc)
 			when '6'
-				@cars = Car.order(:year)
+				@cars = Car.where(issold: false).order(:year)
 			when '7'
-				@cars = Car.order(:make, :model)
+				@cars = Car.where(issold: false).order(:make, :model)
 			else
-				@cars = Car.order(created_at: :desc)
+				@cars = Car.where(issold: false).order(created_at: :desc)
 		end
 	end
 
 	def new
 		if did_login?
 			@car = Car.new
-		else 
+		else
 			redirect_to login_path
 		end
 	end
@@ -64,4 +64,10 @@ class CarsController < ApplicationController
     @cars = Car.all
   end
 
+  def update
+    @car = Car.find(params[:id])
+    @car.update(params.require(:car).permit(:issold))
+    @car.save
+    redirect_to car_path
+  end
 end
