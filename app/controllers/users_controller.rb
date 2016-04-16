@@ -14,10 +14,6 @@ class UsersController < ApplicationController
   end
   def show   
   end
-  def mycars
-  end
-  def myfav
-  end
   def managercar
     @cars = Car.all
   end
