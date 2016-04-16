@@ -60,10 +60,6 @@ class CarsController < ApplicationController
     redirect_to  manager_cars_path
   end
 
-  def manage
-    @cars = Car.all
-  end
-
   def update
     @car = Car.find(params[:id])
     @car.update(params.require(:car).permit(:issold))

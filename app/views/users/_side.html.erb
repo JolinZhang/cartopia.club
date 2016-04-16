@@ -3,6 +3,6 @@
 <%= link_to 'my cars', user_cars_path(current_user)%><br>
 <%= link_to 'my favs', user_favs_path(current_user)%><br>
 <% if current_user.isadmin == true%>
-<%= link_to 'manage cars',manage_cars_path%><br>
-<%= link_to 'manage users', users_path%><br>
+<%= link_to 'manage cars', admin_cars_path%><br>
+<%= link_to 'manage users', admin_users_path%><br>
 <%end%>
