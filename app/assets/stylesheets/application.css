@@ -30,7 +30,6 @@
 	color: #fff;
 }
 
-/* Add a gray background color and some padding to the footer */
 footer {
 	color: rgba(51,51,51,0.5);
   padding: 15px 0 30px 0;
@@ -78,4 +77,11 @@ input.underline_textfield:focus {
 form {
 	margin-top: 15px;
 	text-align: center;
+}
+
+
+@media (min-width: 767px) {
+  ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+  }
 }

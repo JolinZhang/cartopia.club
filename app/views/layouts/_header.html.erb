@@ -15,6 +15,18 @@
           <li><%= link_to 'SELL', new_car_path %></li>
 					<li><%= link_to 'INFO', info_buy_path %></li>
           <% if did_login? %>
+
+
+      <li class="dropdown">
+				<%= link_to current_user.username.upcase, cars_path,{ :class => 'dropdown-toggle', 'data-toggle' => 'dropdown'} %>
+        <ul class="dropdown-menu">
+          <li><a href="#">My Cars</a></li>
+          <li><a href="#">My Favorites</a></li>
+          <li><a href="#">Logout</a></li> 
+        </ul>
+      </li>
+
+
           <li><%= link_to current_user.username.upcase,user_cars_path(current_user.id)%></li>
           <li><%= link_to 'LOGOUT', logout_path, method: :delete%></li>
           <% else %>
