@@ -38,12 +38,17 @@ class CarsController < ApplicationController
 		if @car.save
 			#save picture name = userid-carid
 			uploaded_io = params[:car][:picture]
-			@car.picture = @car.user_id.to_s+"-"+@car.id.to_s+File.extname(uploaded_io.original_filename)
-			@car.save
-			#upload picture
-			File.open(Rails.root.join('app','assets','images','user_car',@car.picture.to_s),'wb') do |file|
-				file.write(uploaded_io.read)
-			end
+      if uploaded_io
+  			@car.picture = @car.user_id.to_s+"-"+@car.id.to_s+File.extname(uploaded_io.original_filename)
+  			@car.save
+  			#upload picture
+  			File.open(Rails.root.join('app','assets','images','user_car',@car.picture.to_s),'wb') do |file|
+  				file.write(uploaded_io.read)
+        end
+      else
+        @car.picture = 'default.png'
+        @car.save
+      end
 			redirect_to  cars_path
 	  else
 			render 'new'
