@@ -13,10 +13,12 @@
         <div class='postprice'>price:<%=@car.price%></div>
         <!-- label if sold -->
         <div class='postissold'>issold:<%= @car.issold%>
+          <% if did_login? && current_user == @car.user.username%>
          <%= form_for :car,html:{class:"issold"},url:car_path(@car.id), method: :patch do |f| %>
             <%= f.select :issold,[['No',0],['Yes',1]]%>
             <%= f.submit%>
           <% end %>
+        <% end %>
         </div>
         <div class='postcontact'>contact:<%=@car.contact%></div>
         <div class='postcity'>city:<%=@car.city%></div>
@@ -38,6 +40,7 @@
 </div>
 <%end%>
 <!-- add comment -->
+<% if did_login?%>
 <div class="row content">
   <div class="col-sm-3 commentadd">
    Add a comment
@@ -48,6 +51,6 @@
     <p><%=f.submit%></p>
   <%end%>
   </div>
-
 </div>
+<%end%>
 </div>
