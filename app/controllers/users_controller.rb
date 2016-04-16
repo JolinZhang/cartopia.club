@@ -25,6 +25,13 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to users_path
   end
+	def favs 
+		@favs = current_user.favorites.order(created_at: :desc)
+		@cars = @favs.collect {|fav| fav.car}
+	end
+	def cars
+		@cars = current_user.cars.order(created_at: :desc)
+	end
   def update
     @user = User.find(params[:id])
     if params.require(:user).permit(:isadmin)["isadmin"].to_i == 0
