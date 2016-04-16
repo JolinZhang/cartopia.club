@@ -6,7 +6,9 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(username: params[:session][:username].downcase)
     if @user && @user.authenticate(params[:session][:password])
+			log_in @user
       session[:user_id] = @user.id
+			params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
       redirect_to root_path
     elsif !@user
       # Uername incorrect.
@@ -20,7 +22,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    perform_logout
+    perform_logout if did_login?
     redirect_to root_path
   end
 
