@@ -13,8 +13,9 @@
       <div class="carcontact">contact:<%=car.contact%></div>
       <% if did_login?%>
       <div class=""><%= link_to"Favorite", user_favorites_path(current_user.id), data: {params: {car_id: car.id}.to_param, method: :post, remote: true} %></div>
-      <% end %>  
+      <% end %>
     </div>
     <%end %>
   </div>
   <% end %>
+  	<%= will_paginate @cars %>
