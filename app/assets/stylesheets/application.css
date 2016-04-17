@@ -80,8 +80,25 @@ form {
 }
 
 
+<<<<<<< Updated upstream
 @media (min-width: 767px) {
   ul.nav li.dropdown:hover > ul.dropdown-menu {
     display: block;
   }
 }
+=======
+/* car_item */
+img.car_item_image {
+	width:100%;
+}
+
+.row .car_item {
+	background: #eee;
+	margin-bottom: 10px;
+}
+
+.row .car_item .col-sm-3{
+	padding: 0;
+}
+
+>>>>>>> Stashed changes
