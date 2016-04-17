@@ -20,7 +20,7 @@
   margin-bottom: 0;
   border-radius: 0;
 	background-image: none;
-	background-color: #333; 
+	background-color: #333;
 	border-width: 0;
 }
 
@@ -79,22 +79,151 @@ form {
 	text-align: center;
 }
 
+
 @media (min-width: 767px) {
   ul.nav li.dropdown:hover > ul.dropdown-menu {
     display: block;
   }
 }
 
-/* car_item */
-img.car_item_image {
-	width:100%;
+
+
+/*css for car list*/
+.carlist{
+  background-color: #eee;
+  margin-top: 10px;
 }
 
-.row .car_item {
-	background: #eee;
-	margin-bottom: 10px;
+img{
+  width:100%;
+  height:auto;
+}
+a{
+	color: black;
+}
+a:hover{
+	text-decoration: none;
+	color:gery;
+}
+a:visited{
+	color:gery;
+}
+.cartitle{
+	margin-top: 15px;
+	font-size: 1.8em;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	line-height: 1.5;
+
+}
+.caryear{
+	display: inline;
+	padding-right: 5px;
+}
+.carmake{
+	display: inline;
+	padding-right: 5px;
+}
+.carmodel{
+	display:inline;
+	padding-right: 5px;
+}
+.carprice{
+	font-size: 2.4rem;
+  font-weight: bold;
+  line-height: 1.5em;
+	margin-right: 8px;
+	display: inline-block;
+	padding-right: 10px;
+}
+.carmileage{
+	font-size: 1.75rem;
+  font-weight: 600;
+	display: inline-block;
+}
+.carlocation{
+	font-size: 1.0em;
+}
+.carseller{
+ margin-top: 15px;
+}
+.carcontact{
+}
+.favorite{
+	color: red;
 }
 
-.row .car_item .col-sm-3{
-	padding: 0;
+
+
+
+
+
+
+
+/*css for new car;*/
+.main{
+	text-align:center;
+	background-color: #eee;
+}
+
+/*css for carshow*/
+.post{
+  background-color: #eee;
+}
+.postname{
+  font-weight: bold;
+  text-align: center;
+}
+.postcreatetime{
+  text-align: center;
+}
+.postupdatetime{
+  text-align: center;
+}
+.postyear{
+  display: inline-block;
+}
+.postmake{
+  display: inline-block;
+}
+.postmodel{
+  display: inline-block;
+}
+.postmileage{
+  display: inline-block;
+}
+.postprice{
+}
+.postcontact{
+  display: inline-block;
+}
+.postissold{
+}
+.issold{
+  display: inline-block;
+  margin-top: 0px;
+  text-align: left;
+}
+.postcity{
+  display: inline-block;
+}
+.poststate{
+  display: inline-block;
+}
+.postpicture{
+  width:60%;
+}
+
+/*css of show comment*/
+.comment{
+  margin-top: 5px;
+  background-color: #eee;
+}
+.commentadd{
+  text-align:center;
+}
+.reply{
+  text-align: center;
+}
+.content_text{
+  text-align: left;
 }

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 	get		'/info/buy' => 'info#buy', as: :info_buy
 	get		'/info/inspection' => 'info#inspection', as: :info_inspection
 	get		'/info/insurance' => 'info#insurance', as: :info_insurance
-	
+
 
 	resources :users do
 	  resources :favorites
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
 	get '/admin/cars' => 'admin#cars', as: :admin_cars
 	get '/admin/users' => 'admin#users', as: :admin_users
-
+  post '/cars/search' => 'cars#search', as: :cars_search
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
