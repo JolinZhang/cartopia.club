@@ -4,7 +4,7 @@
 <md-card>
 <md-content class="login">
 
-<%= form_for :session, url: login_path, remote: true, :html =>  {:name => 'login'}  do |f|%>
+<%= form_for :session, url: login_path, remote: true do |f|%>
 <md-input-container>
 	<label>Username</label>
 	<%= f.text_field :username %><br>

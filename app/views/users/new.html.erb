@@ -1,20 +1,43 @@
-<% if @user.errors.any? %>
-		<ul>
-			<% @user.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
-			<% end %>
-		</ul>
+<div layout="row">
+<div flex></div>
+
+<md-card>
+<md-content class="login">
+
+<%= form_for :user, url: users_path, remote: true do |f|%>
+<md-input-container>
+	<label>Username</label>
+	<%= f.text_field :username %><br>
+</md-input-container>
+
+<br>
+
+<md-input-container>
+	<label>Email</label>
+	<%= f.text_field :email %><br>
+</md-input-container>
+
+<br>
+
+<md-input-container>
+	<label>Password</label>
+	<%= f.text_field :password, :type => 'password' %><br>
+</md-input-container>
+
+<br>
+
+<md-input-container>
+	<label>Confirm Password</label>
+	<%= f.text_field :password_confirmation, :type => 'password' %><br>
+</md-input-container>
+
+<br>
+
+	<md-button ng-click="clickSignup()">SIGNUP</md-button></br>
+	<%= f.submit 'SIGNUP', :style => 'display: none' %>
 <% end %>
 
-<%= form_for :user, url: users_path do |f|%>
-	<%= f.text_field :username, placeholder:'Username', class: 'underline_textfield' %><br>
-
-	<%= f.text_field :email, placeholder:'Email', class: 'underline_textfield' %><br>
-
-	<%= f.text_field :password, placeholder:'Password', class: 'underline_textfield' %><br>
-
-	<%= f.text_field :password_confirmation, placeholder:'Password Confirmation', class: 'underline_textfield' %><br>
-
-	<%= f.submit 'SIGNUP', class: 'btn btn-default' %>
-<% end %>
-
+</md-content>
+</md-card>
+<div flex></div>
+</div>

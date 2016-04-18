@@ -1,0 +1,15 @@
+$('.md-errors-spacer:eq(0)').text("");
+$('.md-errors-spacer:eq(1)').text("");
+$('.md-errors-spacer:eq(2)').text("");
+$('.md-errors-spacer:eq(3)').text("");
+<% if @user.errors[:username].count != 0 %>
+$('.md-errors-spacer:eq(0)').text("please try another one");
+<% elsif @user.errors[:email].count != 0 %>
+$('.md-errors-spacer:eq(1)').text("format incorrect");
+<% elsif @user.errors[:password].count != 0 %>
+$('.md-errors-spacer:eq(2)').text("at least 6 chars");
+<% elsif @user.errors[:password_confirmation].count != 0 %>
+$('.md-errors-spacer:eq(3)').text("password doesn't match");
+<% else %>
+window.location.href = '/'
+<% end %>

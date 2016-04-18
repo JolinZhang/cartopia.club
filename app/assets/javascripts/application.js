@@ -32,6 +32,9 @@ angular.module('cartopia', ['ngMaterial'])
 	$scope.clickLogin = function () {
 		$("input[name='commit']").click();
 	};
+	$scope.clickSignup = function () {
+		$("input[name='commit']").click();
+	};
 });
 
 $(document).on('ready page:load', function(arguments) {
