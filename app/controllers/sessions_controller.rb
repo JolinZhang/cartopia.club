@@ -5,20 +5,22 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:session][:username].downcase)
+		respond_to do |format|
     if @user && @user.authenticate(params[:session][:password])
 			log_in @user
       session[:user_id] = @user.id
 			params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
-      redirect_to root_path
+			format.js {  }
     elsif !@user
       # Uername incorrect.
       @login_fail = 1
-      render('new')
+			format.js {  }
     elsif @user && !@user.authenticate(params[:session][:password])
       # Password incorrect.
       @login_fail = 2
-      render('new')
+			format.js {  }
     end
+		end
   end
 
   def destroy

@@ -1,11 +1,10 @@
-<% if @login_fail == 1 %> 
-	Username Incorrect.
-<% end %>
-<% if @login_fail == 2 %> 
-	Password Doesn't Match.
-<% end %>
+<div layout="row">
+<div flex></div>
 
-<%= form_for :session, url: login_path, class: 'text' do |f|%>
+<md-card>
+<md-content class="login">
+
+<%= form_for :session, url: login_path, remote: true, :html =>  {:name => 'login'}  do |f|%>
 <md-input-container>
 	<label>Username</label>
 	<%= f.text_field :username %><br>
@@ -15,20 +14,25 @@
 
 <md-input-container>
 	<label>Password</label>
-	<%= f.text_field :password, type: "password" %><br>
+	<%= f.text_field :password, :type => 'password' %><br>
 </md-input-container>
 
 <br>
 
 <md-checkbox class="md-warn" ng-click="toggleRemember()">
-Remember me on this device
+Remember Me
 </md-checkbox>
-	<%= f.check_box :remember_me, :style => 'visibility: hidden' %>
+	<%= f.check_box :remember_me, :style => 'display: none' %>
 
 <br>
 
-	<%= f.submit 'LOGIN', class: 'md-primary md-button md-ink-ripple'%>
+	<md-button ng-click="clickLogin()">LOGIN</md-button></br>
+	<%= f.submit 'LOGIN', :style => 'display: none' %>
 
 
 <% end %>
 
+</md-content>
+</md-card>
+<div flex></div>
+</div>

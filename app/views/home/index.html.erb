@@ -1,0 +1,54 @@
+<div layout="column">
+	<div class="banner">
+		<span>CAR'S PLACE</span>
+	</div>
+	<div layout="row" layout-xs="column">
+		<div flex="10" hide-xs></div>
+		<div flex layout="row">
+			<md-card flex>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">BUY</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <p>Find a car that fits you perfectly.</p>
+        </md-card-content>
+        <md-card-actions layout="column" layout-align="start">
+          <md-button ng-href="<%=cars_path%>">BROWSE CARS</md-button>
+        </md-card-actions>
+      </md-card>
+		</div>
+		<div flex layout="row">
+			<md-card flex>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">SELL</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <p>Let's see if anyone is interested in your car.</p>
+        </md-card-content>
+        <md-card-actions layout="column" layout-align="start">
+          <md-button ng-href="<%=new_car_path%>">SELL MY CAR</md-button>
+        </md-card-actions>
+      </md-card>
+		</div>
+		<div flex layout="row">
+			<md-card flex>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">INFO</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <p>Do you wanna know more about cars?</p>
+        </md-card-content>
+        <md-card-actions layout="column" layout-align="start">
+          <md-button ng-href="<%=info_buy_path%>">GET CAR INFO</md-button>
+        </md-card-actions>
+      </md-card>
+		</div>
+		<div flex="10" hide-xs></div>
+	</div>
+</div>

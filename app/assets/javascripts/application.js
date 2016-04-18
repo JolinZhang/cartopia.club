@@ -28,7 +28,10 @@ angular.module('cartopia', ['ngMaterial'])
 		} else {
 			$("input[name='session[remember_me]']").val("1"); 
 		}
-	}
+	};
+	$scope.clickLogin = function () {
+		$("input[name='commit']").click();
+	};
 });
 
 $(document).on('ready page:load', function(arguments) {

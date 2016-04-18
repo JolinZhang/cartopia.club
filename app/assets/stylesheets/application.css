@@ -10,10 +10,20 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_self
  *= require angular-material
+ *= require_self
  */
 
 .md-toolbar-tools a {
 	margin-right: 20px;
+}
+
+md-content.login {
+	text-align: center;
+	margin: 20px 50px;
+}
+
+md-input-container .md-errors-spacer {
+	color: red;
+	float: left;
 }
