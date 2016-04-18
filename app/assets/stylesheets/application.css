@@ -27,3 +27,8 @@ md-input-container .md-errors-spacer {
 	color: red;
 	float: left;
 }
+
+.card-media {
+	background-size: cover;
+	background-position: center;
+}
