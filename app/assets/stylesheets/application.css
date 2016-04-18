@@ -14,3 +14,6 @@
  *= require angular-material
  */
 
+.md-toolbar-tools a {
+	margin-right: 20px;
+}

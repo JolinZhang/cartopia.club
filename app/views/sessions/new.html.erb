@@ -6,15 +6,29 @@
 <% end %>
 
 <%= form_for :session, url: login_path, class: 'text' do |f|%>
-	<%= f.text_field :username, placeholder:'Username', class: 'underline_textfield' %><br>
+<md-input-container>
+	<label>Username</label>
+	<%= f.text_field :username %><br>
+</md-input-container>
 
-	<%= f.text_field :password, placeholder:'Password', class: 'underline_textfield', type: "password" %><br>
+<br>
 
-	<%= f.label :remember_me, class: "checkbox inline" do %>
-	  <%= f.check_box :remember_me %>
-		  <span>Remember me on this computer</span>
-			<% end %>
+<md-input-container>
+	<label>Password</label>
+	<%= f.text_field :password, type: "password" %><br>
+</md-input-container>
 
-	<%= f.submit 'LOGIN', class: 'btn btn-default'%>
+<br>
+
+<md-checkbox class="md-warn" ng-click="toggleRemember()">
+Remember me on this device
+</md-checkbox>
+	<%= f.check_box :remember_me, :style => 'visibility: hidden' %>
+
+<br>
+
+	<%= f.submit 'LOGIN', class: 'md-primary md-button md-ink-ripple'%>
+
+
 <% end %>
 

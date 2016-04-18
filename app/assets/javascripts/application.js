@@ -19,3 +19,19 @@
 //= require angular-aria
 //= require angular-messages
 //= require angular-material
+
+angular.module('cartopia', ['ngMaterial'])
+.controller('AppCtrl', function($scope) {
+	$scope.toggleRemember = function () {
+		if ($("input[name='session[remember_me]']").val() == '1') {
+			$("input[name='session[remember_me]']").val("0"); 
+		} else {
+			$("input[name='session[remember_me]']").val("1"); 
+		}
+	}
+});
+
+$(document).on('ready page:load', function(arguments) {
+	angular.bootstrap(document.body, ['cartopia'])
+});
+
