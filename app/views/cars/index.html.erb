@@ -1,3 +1,15 @@
+<div class="search">
+  <%= form_for :search, url: cars_search_path do |f|%>
+  <%= f.label :make %>
+  <%= f.text_field :make%>
+  <%= f.label :model %>
+  <%= f.text_field :model%>
+  <%= f.label :price %>
+  <%= f.text_field :price%>
+  <%= f.submit%>
+  <%  end  %>
+</div>
+
 <div class="dropdown">
   <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">SORT BY
   <span class="caret"></span></button>
@@ -13,8 +25,6 @@
   </ul>
 </div>
 
-<div class="container-fluid">
-  <div class="row content">
-	<%= render 'cars/item' %>
-</div>
+<div class="container">
+<%= render 'cars/item' %>
 </div>

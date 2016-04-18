@@ -46,7 +46,7 @@ class CarsController < ApplicationController
   				file.write(uploaded_io.read)
         end
       else
-        @car.picture = 'default.png'
+        @car.picture = 'default.jpg'
         @car.save
       end
 			redirect_to  cars_path
@@ -70,5 +70,9 @@ class CarsController < ApplicationController
     @car.update(params.require(:car).permit(:issold))
     @car.save
     redirect_to car_path
+  end
+  def search
+    @cars = Car.where(make: params[:search][:make])
+    redirect_to cars_path
   end
 end

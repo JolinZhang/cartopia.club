@@ -1,23 +1,31 @@
 <% @cars = pagination(@cars) %>
 
   <% @cars.each do |car| %>
-   <div class="carlist ">
+	<div class="row content carlist">
+
     <div class="col-sm-3 ">
       <div class=""><%= image_tag("/assets/user_car/#{car.picture}", :alt => "rss feed") %></div>
     </div>
+		<div class="col-sm-5 ">
     <%= link_to car_path(car.id) do %>
-    <div class="col-sm-9 ">
-      <div class="cartitle"><%=car.year%><%=car.make%><%=car.model%></div>
+      <div class="cartitle">
+      <div class="caryear"><%=car.year%></div>
+      <div class="carmake"><%=car.make%></div>
+      <div class="carmodel"><%=car.model%></div>
+    </div>
       <div class="carprice">$<%=car.price%></div>
       <div class="carmileage"><%=car.mileage%>mi</div>
-      <div class="carlocation"><%=car.state%><%=car.city%></div>
-      <div class="carseller">post by:<%=car.user.username%></div>
+      <div class="carlocation"><%=car.state%>|<%=car.city%></div>
+		</div>
+    <div class="col-sm-4 ">
+			<div class="carseller">post by:<%=car.user.username%></div>
       <div class="carcontact">contact:<%=car.contact%></div>
       <% if did_login?%>
-      <div class=""><%= link_to"Favorite", user_favorites_path(current_user.id), data: {params: {car_id: car.id}.to_param, method: :post, remote: true} %></div>
+      <div class=""><%= link_to"Favorite", user_favorites_path(current_user.id), data: {params: {car_id: car.id}.to_param, method: :post, remote: true},
+		 :class=>"favorite"	%></div>
       <% end %>
-    </div>
     <%end %>
   </div>
+</div>
   <% end %>
-  	<%= will_paginate @cars %>
+  <%= will_paginate @cars %>
