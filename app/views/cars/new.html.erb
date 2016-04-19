@@ -190,7 +190,7 @@
 					<md-option value="WA">WA</md-option>
 					<md-option value="WV">WV</md-option>
 					<md-option value="WI">WI</md-option>
-					<md-option value="WY">WY</md-option>	
+					<md-option value="WY">WY</md-option>
         </md-select>
 				<div class="md-errors-spacer"></div>
       </md-input-container>
@@ -209,13 +209,15 @@
 			</md-input-container>
 			</div>
 
+
+			<%= f.text_area(:notes, cols: 30,rows: 1, :style=> 'display:none' )%>
 			<md-input-container class="md-block">
           <label>Notes</label>
-          <textarea ng-model="notes" md-maxlength="256" rows="5" md-select-on-focus></textarea>
+          <textarea ng-change="notesChange()" ng-model="notes" md-maxlength="256" rows="5" md-select-on-focus></textarea>
 			</md-input-container>
 
 			<div layout="row">
-			<%= f.file_field :picture, :style =>'display:none' %>
+			<%= f.file_field :picture %>
 			<label for="car_picture" class="md-button md-raised">Choose Files</label>
 
 			<div flex></div>

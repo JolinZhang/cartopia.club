@@ -18,17 +18,17 @@
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
           <% if did_login? && Favorite.where(car_id: car.id, user_id: current_user.id).count == 0 %>
-          <md-button><%= link_to"Favorite", user_favorites_path(current_user.id, :car_id => car.id), method: :post%></md-button>
+          <md-button class='md-icon-button' ng-href="<%= user_favorites_path(current_user.id, :car_id => car.id)%>" data-method="post"><md-icon style="color: rgb(255, 82, 82);" md-font-set="material-icons">favorite_border</md-icon></md-button>
           <% end %>
           <% if did_login? &&  Favorite.where(car_id: car.id, user_id: current_user.id).count != 0 %>
           <% @fav = Favorite.where(car_id: car.id, user_id: current_user.id).ids%>
-          <md-button><%= link_to"deleteFaorite", user_favorite_path(current_user.id, @fav.first), method: :delete%></md-button>
+          <md-button class='md-icon-button' ng-href="<%= user_favorite_path(current_user.id, @fav.first)%>" data-method="delete"><md-icon style="color: rgb(255, 82, 82);" md-font-set="material-icons">favorite</md-icon></md-button>
           <% end %>
           <% if did_login? &&  current_user.isadmin == true%>
     			<md-button><%= link_to"Delete", car_path(car.id), method: :delete, data: {confirm: 'Are you sure? '}	%></md-button>
     			<% end %>
           <%= link_to car_path(car.id) do %>
-          <md-button>Car Info</md-button>
+          <md-icon md-font-set="material-icons">description</md-icon>
           <%end%>
         </md-card-actions>
       </md-card>
