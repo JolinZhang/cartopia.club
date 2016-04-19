@@ -3,13 +3,13 @@ $('.md-errors-spacer:eq(1)').text("");
 $('.md-errors-spacer:eq(2)').text("");
 $('.md-errors-spacer:eq(3)').text("");
 <% if @user.errors[:username].count != 0 %>
-$('.md-errors-spacer:eq(0)').text("please try another one");
+$('.md-errors-spacer:eq(0)').text("username <%= @user.errors[:username].first%>");
 <% elsif @user.errors[:email].count != 0 %>
-$('.md-errors-spacer:eq(1)').text("format incorrect");
+$('.md-errors-spacer:eq(1)').text("email <%= @user.errors[:email].first%>");
 <% elsif @user.errors[:password].count != 0 %>
-$('.md-errors-spacer:eq(2)').text("at least 6 chars");
+$('.md-errors-spacer:eq(2)').text("password <%= @user.errors[:password].first%>");
 <% elsif @user.errors[:password_confirmation].count != 0 %>
-$('.md-errors-spacer:eq(3)').text("password doesn't match");
+$('.md-errors-spacer:eq(3)').text("password <%= @user.errors[:password_confirmation].first%>");
 <% else %>
 window.location.href = '/'
 <% end %>
