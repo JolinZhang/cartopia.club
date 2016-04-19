@@ -1,9 +1,20 @@
 <div layout="column">
-	<div class="banner">
-		<span>CAR'S PLACE</span>
+
+	<div layout="row">
+		<div flex="10" hide-xs hide-sm></div>
+		<div flex layout="row">
+			<md-card flex>
+				<div class="banner">
+					<span>CAR'S PLACE</span>
+				</div>
+			</md-card>
+		</div>
+		<div flex="10" hide-xs hide-sm></div>
 	</div>
+
+
 	<div layout="row" layout-xs="column">
-		<div flex="10" hide-xs></div>
+		<div flex="10" hide-xs hide-sm></div>
 		<div flex layout="row">
 			<md-card flex>
         <md-card-title>
@@ -45,10 +56,10 @@
           <p>Do you wanna know more about cars?</p>
         </md-card-content>
         <md-card-actions layout="column" layout-align="center center">
-          <md-button class="md-raised" ng-href="<%=info_buy_path%>">GET CAR INFO</md-button>
+          <md-button class="md-raised" ng-href="<%=info_path%>">GET CAR INFO</md-button>
         </md-card-actions>
       </md-card>
 		</div>
-		<div flex="10" hide-xs></div>
+		<div flex="10" hide-xs hide-sm></div>
 	</div>
 </div>

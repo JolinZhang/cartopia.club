@@ -1,11 +1,11 @@
 <md-toolbar>
 	<div class="md-toolbar-tools">
-		<span flex="10" hide-xs></span>
+		<span flex="10" hide-sm hide-xs></span>
 		<%= link_to 'CARTOPIA', root_path %>
 		<span flex></span>
 		<%= link_to 'BUY', cars_path %>
 		<%= link_to 'SELL', new_car_path %> 
-		<%= link_to 'INFO', info_buy_path %> 
+		<%= link_to 'INFO', info_path %> 
 
 <% if did_login? %>
 
@@ -23,6 +23,16 @@
                   </div>
               </md-button>
             </md-menu-item>
+            <md-menu-item>
+              <md-button>
+                  <div layout="row" flex>
+<%= link_to user_favs_path(current_user) do%>
+                    <p>MY FAVS</p>
+<% end %>
+                  </div>
+              </md-button>
+            </md-menu-item>
+
             <md-menu-item>
               <md-button>
                   <div layout="row" flex>
@@ -65,6 +75,6 @@
 <% end %>
 
 
-		<span flex="10" hide-xs></span>
+		<span flex="10" hide-sm hide-xs></span>
 	</div>
 </md-toolbar>

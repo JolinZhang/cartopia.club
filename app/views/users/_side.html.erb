@@ -1,11 +1,17 @@
 
 <div layout="row">
-<div flex="10"></div>
-<div >
-<%= link_to 'my cars', user_cars_path(current_user)%><br>
-<%= link_to 'my favs', user_favs_path(current_user)%><br>
+	<div flex="20" class="side">
+<div layout="column">
+<div layout="column">
+<md-button ng-href="<%=user_cars_path(current_user)%>">MY CARS</md-button>
+<md-button ng-href="<%=user_favs_path(current_user)%>">MY FAVS</md-button>
 <% if current_user.isadmin == true%>
-<%= link_to 'manage cars', admin_cars_path%><br>
-<%= link_to 'manage users', admin_users_path%><br>
+<md-button ng-href="<%=admin_cars_path%>">MANAGE CARS</md-button>
+<md-button ng-href="<%=admin_users_path%>">MANAGE USERS</md-button>
 <%end%>
+</div>
 </div>    
+	</div>
+
+	<div flex>
+

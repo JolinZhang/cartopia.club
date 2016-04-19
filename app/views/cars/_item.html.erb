@@ -1,8 +1,6 @@
 <% @cars = pagination(@cars) %>
 
 <div layout="row">
-<div flex="10"></div>
-
 <div flex>
   <% @cars.each do |car| %>
 <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
@@ -37,5 +35,4 @@
   <% end %>
   <%= will_paginate @cars %>
 </div>
-<div flex="10"></div>
 </div>

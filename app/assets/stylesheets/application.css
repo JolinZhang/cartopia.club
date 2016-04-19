@@ -32,3 +32,7 @@ md-input-container .md-errors-spacer {
 	background-size: cover;
 	background-position: center;
 }
+
+.side {
+	background: #8C9EFF;
+}
