@@ -1,17 +1,15 @@
 
-<div layout="row">
-	<div flex="20" class="side">
-<div layout="column">
-<div layout="column">
-<md-button ng-href="<%=user_cars_path(current_user)%>">MY CARS</md-button>
-<md-button ng-href="<%=user_favs_path(current_user)%>">MY FAVS</md-button>
+<div layout="row" layout-xs="column">
+	<div flex="10" hide-xs hide-sm></div>
+	<div flex-gt-sm="20" flex-sm="30">
+	<md-card layout="column" layout-xs="row" layout-padding layout-align="space-around stretch">
+<md-button class="md-raised" ng-href="<%=user_cars_path(current_user)%>">MY CARS</md-button>
+<md-button class="md-raised" ng-href="<%=user_favs_path(current_user)%>">MY FAVS</md-button>
 <% if current_user.isadmin == true%>
-<md-button ng-href="<%=admin_cars_path%>">MANAGE CARS</md-button>
-<md-button ng-href="<%=admin_users_path%>">MANAGE USERS</md-button>
+<md-button class="md-raised" ng-href="<%=admin_cars_path%>">MANAGE CARS</md-button>
+<md-button class="md-raised" ng-href="<%=admin_users_path%>">MANAGE USERS</md-button>
 <%end%>
+</md-card>
 </div>
-</div>    
-	</div>
-
-	<div flex layout-padding>
+	<div flex>
 
