@@ -27,14 +27,14 @@
 			<md-button class="md-raised" type="submit">SUBMIT</md-button>
 	<%end%>
 
-SORT BY:
-
-			<md-button data-remote="true" class="md-raised" ng-href="<%=cars_sort_path + "?" + {sort: 4}.to_param%>">MILEAGE</md-button>
-			<md-button class="md-raised">SUBMIT</md-button>
-			<md-button class="md-raised">SUBMIT</md-button>
-			<md-button class="md-raised">SUBMIT</md-button>
-			<md-button class="md-raised">SUBMIT</md-button>
-			<md-button class="md-raised">SUBMIT</md-button>
+			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 0}.to_param %>">Post Date \</md-button>
+			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 1}.to_param %>">Price \</md-button>
+			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 2}.to_param %>">Price /</md-button>
+			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 3}.to_param %>">Mileage \</md-button>
+			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 4}.to_param %>">Mileage /</md-button>
+			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 5}.to_param %>">Year \</md-button>
+			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 6}.to_param %>">Year /</md-button>
+			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 7}.to_param %>">Make/Model</md-button>
 
 </div>
 </div>    
