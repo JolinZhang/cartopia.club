@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
 	get '/admin/cars' => 'admin#cars', as: :admin_cars
 	get '/admin/users' => 'admin#users', as: :admin_users
-  post '/cars/search' => 'cars#search', as: :cars_search
+  post '/cars/s/search' => 'cars#search', as: :cars_search
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
