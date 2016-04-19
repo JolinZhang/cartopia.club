@@ -33,6 +33,7 @@ class CarsController < ApplicationController
 
 	def create
 		@car = Car.new(params.require(:car).permit(:year, :make, :model, :mileage, :price, :contact, :city, :state,:notes))
+		respond_to do |format|
 		@car.user_id = current_user.id
 		@car.issold = false
 		if @car.save
@@ -49,9 +50,10 @@ class CarsController < ApplicationController
         @car.picture = 'default.jpg'
         @car.save
       end
-			redirect_to  cars_path
+			format.js {  }
 	  else
-			render 'new'
+			format.js {  }
+		end
 		end
 	end
 

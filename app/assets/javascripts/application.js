@@ -35,6 +35,15 @@ angular.module('cartopia', ['ngMaterial'])
 	$scope.clickSignup = function () {
 		$("input[name='commit']").click();
 	};
+	$scope.yearSelected = function () {
+		$("input[name='car[year]']").val($scope.year+"");
+	};
+	$scope.makeSelected = function () {
+		$("input[name='car[make]']").val($scope.make+"");
+	};
+	$scope.stateSelected = function () {
+		$("input[name='car[state]']").val($scope.state+"");
+	};
 });
 
 $(document).on('ready page:load', function(arguments) {

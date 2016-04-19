@@ -1,17 +1,23 @@
 <div layout="row">
 
+<%= @car.errors.first %>
+
 <div flex="10" hide-xs></div>
 
 <div layout="column" flex>
 	<md-card>
 		<md-card-content>
-			<%= form_for :car , url: cars_path do |f| %>
+			<%= form_for :car , url: cars_path, remote: true do |f| %>
 
 			<div layout="row">
 
+			<%= f.text_field :year, :style => 'display: none'%><br>
+			<%= f.text_field :make, :style => 'display: none'%><br>
+			<%= f.text_field :state, :style => 'display: none'%><br>
+
 			<md-input-container flex>
         <label>Year</label>
-        <md-select ng-model="year">
+        <md-select ng-model="year" ng-change="yearSelected()">
           <md-option value="2016">2016</md-option>
 					<md-option value="2015">2015</md-option>
 					<md-option value="2014">2014</md-option>
@@ -37,13 +43,13 @@
 					<md-option value="1994">1994</md-option>
 					<md-option value="1993">1993</md-option>
         </md-select>
+				<div class="md-errors-spacer"></div>
       </md-input-container>
 
 
 			<md-input-container flex>
         <label>Make</label>
-        <md-select ng-model="make">
-          <md-option value="All Makes">All Makes</md-option>
+        <md-select ng-model="make" ng-change="makeSelected()">
 				  <md-option value="Acura">Acura</md-option>
 					<md-option value="Alfa Romeo">Alfa Romeo</md-option>
 				  <md-option value="Am General">Am General</md-option>
@@ -110,6 +116,7 @@
 					<md-option value="Volkswagen">Volkswagen</md-option>
 					<md-option value="Volvo">Volvo</md-option>
         </md-select>
+				<div class="md-errors-spacer"></div>
       </md-input-container>
 			<md-input-container flex="50">
 				<label>Mode</label>
@@ -133,7 +140,7 @@
 			<div layout="row">
 			<md-input-container flex="50">
         <label>State</label>
-        <md-select ng-model="state">
+        <md-select ng-model="state" ng-change="stateSelected()">
           <md-option value="AL">AL</md-option>
 					<md-option value="AK">AK</md-option>
 					<md-option value="AZ">AZ</md-option>
@@ -185,6 +192,7 @@
 					<md-option value="WI">WI</md-option>
 					<md-option value="WY">WY</md-option>	
         </md-select>
+				<div class="md-errors-spacer"></div>
       </md-input-container>
 
 			<md-input-container flex="50">
@@ -192,6 +200,13 @@
 				<%= f.text_field :city %><br>
 			</md-input-container>
 
+			</div>
+
+			<div layout="column">
+			<md-input-container>
+				<label>Contact</label>
+				<%= f.text_field :contact %><br>
+			</md-input-container>
 			</div>
 
 			<md-input-container class="md-block">
