@@ -16,108 +16,13 @@
 			<%= f.text_field :state, :style => 'display: none'%><br>
 
 			<md-input-container flex>
-        <label>Year</label>
-        <md-select ng-model="year" ng-change="yearSelected()">
-          <md-option value="2016">2016</md-option>
-					<md-option value="2015">2015</md-option>
-					<md-option value="2014">2014</md-option>
-					<md-option value="2013">2013</md-option>
-					<md-option value="2012">2012</md-option>
-					<md-option value="2011">2011</md-option>
-					<md-option value="2010">2010</md-option>
-					<md-option value="2009">2009</md-option>
-					<md-option value="2008">2008</md-option>
-					<md-option value="2007">2007</md-option>
-					<md-option value="2006">2006</md-option>
-					<md-option value="2005">2005</md-option>
-					<md-option value="2004">2004</md-option>
-					<md-option value="2003">2003</md-option>
-					<md-option value="2002">2002</md-option>
-					<md-option value="2001">2001</md-option>
-					<md-option value="2000">2000</md-option>
-					<md-option value="1999">1999</md-option>
-					<md-option value="1998">1998</md-option>
-					<md-option value="1997">1997</md-option>
-					<md-option value="1996">1996</md-option>
-					<md-option value="1995">1995</md-option>
-					<md-option value="1994">1994</md-option>
-					<md-option value="1993">1993</md-option>
-        </md-select>
-				<div class="md-errors-spacer"></div>
+			<%= render 'cars/yearSelect' %>
       </md-input-container>
-
 
 			<md-input-container flex>
-        <label>Make</label>
-        <md-select ng-model="make" ng-change="makeSelected()">
-				  <md-option value="Acura">Acura</md-option>
-					<md-option value="Alfa Romeo">Alfa Romeo</md-option>
-				  <md-option value="Am General">Am General</md-option>
-					<md-option value="Aston Martin">Aston Martin</md-option>
-				  <md-option value="Audi">Audi</md-option>
-					<md-option value="Avanti Motors">Avanti Motors</md-option>
-				  <md-option value="Bentley">Bentley</md-option>
-					<md-option value="BMW">BMW</md-option>
-				  <md-option value="Bugatti">Bugatti</md-option>
-					<md-option value="Buick">Buick</md-option>
-				  <md-option value="Cadillac">Cadillac</md-option>
-					<md-option value="Chevrolet">Chevrolet</md-option>
-				  <md-option value="Chrysler">Chrysler</md-option>
-					<md-option value="Daewoo">Daewoo</md-option>
-				  <md-option value="Dodge">Dodge</md-option>
-					<md-option value="Ferrari">Ferrari</md-option>
-				  <md-option value="FIAT">FIAT</md-option>
-					<md-option value="Fisker">Fisker</md-option>
-				  <md-option value="Ford">Ford</md-option>
-					<md-option value="GMC">GMC</md-option>
-				  <md-option value="Honda">Honda</md-option>
-					<md-option value="Hummer">Hummer</md-option>
-				  <md-option value="Hyundai">Hyundai</md-option>
-					<md-option value="Infiniti">Infiniti</md-option>
-				  <md-option value="International">International</md-option>
-					<md-option value="Isuzu">Isuzu</md-option>
-				  <md-option value="Jaguar">Jaguar</md-option>
-					<md-option value="Jeep">Jeep</md-option>
-				  <md-option value="Kia">Kia</md-option>
-					<md-option value="Koenigsegg">Koenigsegg</md-option>
-					<md-option value="Lamborghini">Lamborghini</md-option>
-					<md-option value="Land Rover">Land Rover</md-option>
-					<md-option value="Lexus">Lexus</md-option>
-					<md-option value="Lincoln">Lincoln</md-option>
-					<md-option value="Lotus">Lotus</md-option>
-					<md-option value="Maserati">Maserati</md-option>
-					<md-option value="Maybach">Maybach</md-option>
-					<md-option value="Mazda">Mazda</md-option>
-					<md-option value="McLaren">McLaren</md-option>
-					<md-option value="Mercedes-Benz">Mercedes-Benz</md-option>
-					<md-option value="Mercury">Mercury</md-option>
-					<md-option value="MINI">MINI</md-option>
-					<md-option value="Mitsubishi">Mitsubishi</md-option>
-					<md-option value="Morgan">Morgan</md-option>
-					<md-option value="Nissan">Nissan</md-option>
-					<md-option value="Oldsmobile">Oldsmobile</md-option>
-					<md-option value="Panoz">Panoz</md-option>
-					<md-option value="Plymouth">Plymouth</md-option>
-					<md-option value="Pontiac">Pontiac</md-option>
-					<md-option value="Porsche">Porsche</md-option>
-					<md-option value="Qvale">Qvale</md-option>
-					<md-option value="RAM">RAM</md-option>
-					<md-option value="Rolls-Royce">Rolls-Royce</md-option>
-					<md-option value="Saab">Saab</md-option>
-					<md-option value="Saleen">Saleen</md-option>
-					<md-option value="Saturn">Saturn</md-option>
-					<md-option value="Scion">Scion</md-option>
-					<md-option value="smart">smart</md-option>
-					<md-option value="Spyker">Spyker</md-option>
-					<md-option value="Subaru">Subaru</md-option>
-					<md-option value="Suzuki">Suzuki</md-option>
-					<md-option value="Tesla">Tesla</md-option>
-					<md-option value="Toyota">Toyota</md-option>
-					<md-option value="Volkswagen">Volkswagen</md-option>
-					<md-option value="Volvo">Volvo</md-option>
-        </md-select>
-				<div class="md-errors-spacer"></div>
+			<%= render 'cars/makeSelect' %>
       </md-input-container>
+
 			<md-input-container flex="50">
 				<label>Mode</label>
 				<%= f.text_field :model %><br>
@@ -139,60 +44,7 @@
 
 			<div layout="row">
 			<md-input-container flex="50">
-        <label>State</label>
-        <md-select ng-model="state" ng-change="stateSelected()">
-          <md-option value="AL">AL</md-option>
-					<md-option value="AK">AK</md-option>
-					<md-option value="AZ">AZ</md-option>
-					<md-option value="AR">AR</md-option>
-					<md-option value="CA">CA</md-option>
-					<md-option value="CO">CO</md-option>
-					<md-option value="CT">CT</md-option>
-					<md-option value="DE">DE</md-option>
-					<md-option value="FL">FL</md-option>
-					<md-option value="GA">GA</md-option>
-					<md-option value="HI">HI</md-option>
-					<md-option value="ID">ID</md-option>
-					<md-option value="IL">IL</md-option>
-					<md-option value="IN">IN</md-option>
-					<md-option value="IA">IA</md-option>
-          <md-option value="KS">KS</md-option>
-					<md-option value="KY">KY</md-option>
-					<md-option value="LA">LA</md-option>
-					<md-option value="ME">ME</md-option>
-					<md-option value="MD">MD</md-option>
-					<md-option value="MA">MA</md-option>
-					<md-option value="MI">MI</md-option>
-					<md-option value="MN">MN</md-option>
-					<md-option value="MS">MS</md-option>
-					<md-option value="MO">MO</md-option>
-					<md-option value="MT">MT</md-option>
-					<md-option value="NE">NE</md-option>
-					<md-option value="NV">NV</md-option>
-					<md-option value="NH">NH</md-option>
-					<md-option value="NJ">NJ</md-option>
-					<md-option value="NM">NM</md-option>
-					<md-option value="NY">NY</md-option>
-					<md-option value="NC">NC</md-option>
-					<md-option value="ND">ND</md-option>
-					<md-option value="OH">OH</md-option>
-					<md-option value="OK">OK</md-option>
-					<md-option value="OR">OR</md-option>
-					<md-option value="PA">PA</md-option>
-					<md-option value="RI">RI</md-option>
-					<md-option value="SC">SC</md-option>
-					<md-option value="SD">SD</md-option>
-					<md-option value="TN">TN</md-option>
-					<md-option value="TX">TX</md-option>
-					<md-option value="UI">UT</md-option>
-					<md-option value="VI">VT</md-option>
-					<md-option value="VA">VA</md-option>
-					<md-option value="WA">WA</md-option>
-					<md-option value="WV">WV</md-option>
-					<md-option value="WI">WI</md-option>
-					<md-option value="WY">WY</md-option>
-        </md-select>
-				<div class="md-errors-spacer"></div>
+				<%= render 'cars/stateSelect' %>
       </md-input-container>
 
 			<md-input-container flex="50">
@@ -217,7 +69,7 @@
 			</md-input-container>
 
 			<div layout="row">
-			<%= f.file_field :picture %>
+			<%= f.file_field :picture, :style=> 'display:none' %>
 			<label for="car_picture" class="md-button md-raised">Choose Files</label>
 
 			<div flex></div>

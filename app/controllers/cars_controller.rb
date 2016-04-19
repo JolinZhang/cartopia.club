@@ -78,7 +78,16 @@ class CarsController < ApplicationController
     redirect_to cars_path
   end
   def search
-    @cars = Car.where(make: params[:search][:make])
-    redirect_to cars_path
+		@cars = Car.all
+		if params[:car][:make] != ""
+			@cars = @cars.select{|a| a.make.downcase == params[:car][:make].downcase}
+		end
+		if params[:car][:model] != ""
+			@cars = @cars.select{|a| a.model.downcase == params[:car][:model].downcase}
+		end
+		if params[:car][:year] != ""
+			@cars = @cars.select{|a| a.year.to_s == params[:car][:year]}
+		end
+		render 'cars/index'
   end
 end

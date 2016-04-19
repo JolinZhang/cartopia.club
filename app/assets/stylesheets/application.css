@@ -14,6 +14,13 @@
  *= require_self
  */
 
+html {
+	background: #E8EAF6;
+}
+
+body {
+	background: #E8EAF6;
+}
 
 .md-toolbar-tools a {
 	margin-right: 20px;
@@ -34,10 +41,18 @@ md-input-container .md-errors-spacer {
 	background-position: center;
 }
 
-.side {
-	background: #8C9EFF;
-}
-
 .pagination {
 	text-align: center;
+}
+
+.header-toolbar {
+	margin-bottom: -64px;
+}
+
+div {
+	z-index: 2;
+}
+
+md-input-container .md-errors-spacer {
+	min-height: 0;
 }

@@ -1,6 +1,6 @@
 
 <% @users = pagination(@users) %>
-<div layout="row">
+<md-card layout="row">
 <div flex layout-padding>
 <% @users.each do |user| %>
 			<md-list flex>
@@ -41,5 +41,5 @@
 <md-divider ></md-divider>
 <%end%>
 	<%= will_paginate @users %>
-</div>
+</md-card>
 </div>

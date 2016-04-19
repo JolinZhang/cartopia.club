@@ -1,4 +1,4 @@
-<md-toolbar>
+<md-toolbar class="md-tall header-toolbar">
 	<div class="md-toolbar-tools">
 		<span flex="10" hide-sm hide-xs></span>
 		<%= link_to 'CARTOPIA', root_path %>
@@ -10,37 +10,25 @@
 <% if did_login? %>
 
 <md-menu md-position-mode="target-right target" >
-          <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+          <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
 			<md-icon md-font-set="material-icons">account_circle</md-icon>
 			<md-tooltip md-direction="down"><%= current_user.username%></md-tooltip>
           </md-button>
           <md-menu-content width="1" >
             <md-menu-item>
-              <md-button>
-                  <div layout="row" flex>
-<%= link_to user_cars_path(current_user) do%>
-                    <p>MY CARS</p>
-<% end %>
-                  </div>
+              <md-button ng-href="<%=user_cars_path(current_user)%>">
+                MY CARS
               </md-button>
             </md-menu-item>
             <md-menu-item>
-              <md-button>
-                  <div layout="row" flex>
-<%= link_to user_favs_path(current_user) do%>
-                    <p>MY FAVS</p>
-<% end %>
-                  </div>
+              <md-button ng-href="<%=user_favs_path(current_user)%>">
+								MY FAVS
               </md-button>
             </md-menu-item>
 
             <md-menu-item>
-              <md-button>
-                  <div layout="row" flex>
-<%= link_to logout_path, method: :delete  do%>
-                    <p>LOGOUT</p>
-<% end %>
-                  </div>
+              <md-button ng-href="<%=logout_path%>" data-method="delete">
+                  LOGOUT
               </md-button>
             </md-menu-item>
           </md-menu-content>
@@ -49,26 +37,18 @@
 <% else %>
 
 <md-menu md-position-mode="target-right target" >
-          <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+          <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
 			<md-icon md-font-set="material-icons">account_circle</md-icon>
           </md-button>
           <md-menu-content width="1" >
             <md-menu-item>
-              <md-button>
-                  <div layout="row" flex>
-<%= link_to login_path do%>
-                    <p>LOGIN</p>
-<% end %>
-                  </div>
+              <md-button ng-href="<%= login_path%>">
+                LOGIN
               </md-button>
             </md-menu-item>
             <md-menu-item>
-              <md-button>
-                  <div layout="row" flex>
-<%= link_to new_user_path do%>
-                    <p>SIGNUP</p>
-<% end %>
-                  </div>
+              <md-button ng-href="<%= new_user_path %>">
+                SIGNUP
               </md-button>
             </md-menu-item>
           </md-menu-content>
