@@ -41,3 +41,11 @@ md-input-container .md-errors-spacer {
 .pagination {
 	text-align: center;
 }
+
+.header-toolbar {
+	margin-bottom: -64px;
+}
+
+div {
+	z-index: 2;
+}

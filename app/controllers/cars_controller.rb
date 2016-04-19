@@ -76,10 +76,10 @@ class CarsController < ApplicationController
   def search
 		@cars = Car.all
 		if params[:car][:make] != ""
-			@cars = @cars.select{|a| a.make == params[:car][:make]}
+			@cars = @cars.select{|a| a.make.downcase == params[:car][:make].downcase}
 		end
 		if params[:car][:model] != ""
-			@cars = @cars.select{|a| a.model == params[:car][:model]}
+			@cars = @cars.select{|a| a.model.downcase == params[:car][:model].downcase}
 		end
 		if params[:car][:year] != ""
 			@cars = @cars.select{|a| a.year.to_s == params[:car][:year]}
