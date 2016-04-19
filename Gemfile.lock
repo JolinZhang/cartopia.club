@@ -106,6 +106,7 @@ GEM
     rake (11.1.1)
     rdoc (4.2.2)
       json (~> 1.4)
+    remotipart (1.2.1)
     sass (3.4.21)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -154,6 +155,7 @@ DEPENDENCIES
   jquery-rails
   rails (= 4.2.6)
   rails-angular-material
+  remotipart (~> 1.2)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

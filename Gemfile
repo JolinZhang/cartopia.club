@@ -48,4 +48,5 @@ group :development do
 
 	gem 'angularjs-rails'
 	gem 'rails-angular-material'
+  gem 'remotipart', '~> 1.2'
 end

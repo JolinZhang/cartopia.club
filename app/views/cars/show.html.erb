@@ -39,20 +39,18 @@
     </div>
 </div>
 <%end%>
-<hr>
-
-
-
-
 <!-- add comment -->
 <% if did_login?%>
  <div layout="row">
   <div flex="10"></div>
    <div  flex="20">
-    <h3>Add a comment<h3>
    </div>
-    <%= form_for :comment,html:{class: "content_text"}, url: car_comments_path(@car.id)  do |f| %>
-    <%= f.text_area(:content, cols: 50,rows: 5)%>
+    <%= form_for :comment,html:{ flex: "70"}, url: car_comments_path(@car.id)  do |f| %>
+    <%= f.text_area(:content, cols: 1,rows: 1, :style => 'display: none')%>
+    <md-input-container class="md-block">
+        <label>Comment</label>
+        <textarea ng-change="contentChanged()" ng-model="comment" md-maxlength="256" rows="5" md-select-on-focus></textarea>
+    </md-input-container>
     <md-button class="md-raised" type="submit">comment</md-button>
     <%end%>
  </div>
