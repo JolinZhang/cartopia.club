@@ -1,8 +1,11 @@
-<ul>
-<li><%= link_to 'my cars', user_cars_path(current_user)%><br></li>
-<li><%= link_to 'my favs', user_favs_path(current_user)%><br></li>
+
+<div layout="row">
+<div flex="10"></div>
+<div >
+<%= link_to 'my cars', user_cars_path(current_user)%><br>
+<%= link_to 'my favs', user_favs_path(current_user)%><br>
 <% if current_user.isadmin == true%>
-	<li><%= link_to 'manage cars', admin_cars_path%><br></li>
-	<li><%= link_to 'manage users', admin_users_path%><br></li>
+<%= link_to 'manage cars', admin_cars_path%><br>
+<%= link_to 'manage users', admin_users_path%><br>
 <%end%>
-</ul>
+</div>      

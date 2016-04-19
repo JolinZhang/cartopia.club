@@ -8,22 +8,34 @@
 <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
         <md-card-title>
           <md-card-title-text>
-            <span class="md-headline">Card with image</span>
-            <span class="md-subhead">Large</span>
+            <span class="md-headline"><%=car.year%> <%=car.make%> <%=car.model%> </span>
+            <span class="md-subhead">$<%=car.price%>  <%=car.mileage%>mi</span>
+            <span class="md-subhead"><%=car.state%>|<%=car.city%></span>
+            <span class="md-subhead">post by:<%=car.user.username%></span>
+            <span class="md-subhead">contact:<%=car.contact%></span>
           </md-card-title-text>
           <md-card-title-media>
             <div class="md-media-lg card-media" style="background-image: url('/assets/user_car/<%=car.picture.to_s%>');"></div>
           </md-card-title-media>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button>Action 1</md-button>
-          <md-button>Action 2</md-button>
+          <% if did_login? && Favorite.where(car_id: car.id, user_id: current_user.id).count == 0 %>
+          <md-button><%= link_to"Favorite", user_favorites_path(current_user.id, :car_id => car.id), method: :post%></md-button>
+          <% end %>
+          <% if did_login? &&  Favorite.where(car_id: car.id, user_id: current_user.id).count != 0 %>
+          <% @fav = Favorite.where(car_id: car.id, user_id: current_user.id).ids%>
+          <md-button><%= link_to"deleteFaorite", user_favorite_path(current_user.id, @fav.first), method: :delete%></md-button>
+          <% end %>
+          <% if did_login? &&  current_user.isadmin == true%>
+    			<md-button><%= link_to"Delete", car_path(car.id), method: :delete, data: {confirm: 'Are you sure? '}	%><md-button>
+    			<% end %>
+          <%= link_to car_path(car.id) do %>
+          <md-button>Car Info</md-button>
+          <%end%>
         </md-card-actions>
       </md-card>
   <% end %>
   <%= will_paginate @cars %>
 </div>
-
 <div flex="10"></div>
-
 </div>
