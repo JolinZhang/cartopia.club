@@ -1,3 +1,17 @@
 // Place all the styles related to the info controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.blog-post h2 {
+  font-size: 1.8rem;
+  margin-top: 0;
+  font-weight: normal; }
+.blog-post h3 {
+    font-size: 1rem;
+    margin-top: 0;
+    font-weight:500; }
+.blog-post h4 {
+    font-size: 1rem;
+    margin-top: 0;
+    font-weight: 500; }
+.blog-post p {
+  line-height: 1.6rem; }
