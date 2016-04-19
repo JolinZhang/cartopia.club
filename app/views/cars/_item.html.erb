@@ -3,7 +3,7 @@
 <div layout="row">
 <div flex>
   <% @cars.each do |car| %>
-<md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+<md-card>
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline"><%=car.year%> <%=car.make%> <%=car.model%> </span>
@@ -25,7 +25,7 @@
           <md-button><%= link_to"deleteFaorite", user_favorite_path(current_user.id, @fav.first), method: :delete%></md-button>
           <% end %>
           <% if did_login? &&  current_user.isadmin == true%>
-    			<md-button><%= link_to"Delete", car_path(car.id), method: :delete, data: {confirm: 'Are you sure? '}	%><md-button>
+    			<md-button><%= link_to"Delete", car_path(car.id), method: :delete, data: {confirm: 'Are you sure? '}	%></md-button>
     			<% end %>
           <%= link_to car_path(car.id) do %>
           <md-button>Car Info</md-button>
