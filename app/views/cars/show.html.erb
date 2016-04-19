@@ -1,64 +1,62 @@
+<div class="page-container">
+   <div class="page">
 
-  <div layout="row">
-       <div flex="10"></div>
-       <div flex="20">
-        <div class='postname'>PostBy:<%=@car.user.username %></div>
-        <div class='postcreatetime'>createtime:<%=@car.created_at%></div>
-        <div class='postupdatetime'>updatetime:<%=@car.updated_at%></div>
-       </div>
-       <div flex="50">
-        <div class='postyear'>year:<%=@car.year %></div>
-        <div class='postmake'>make:<%=@car.make %></div>
-        <div class='postmodel'>model:<%=@car.model %></div>
-        <div class='postmileage'>mileage:<%=@car.mileage %></div>
-        <div class='postprice'>price:<%=@car.price%></div>
+     <div layout="row">
+        <div flex="10"></div>
+        <div flex="20">
+        <h1><%=@car.user.username %></h1>
+        <p><%=@car.created_at%></p>
+        <p><%=@car.updated_at%></p>
+        </div>
+        <div flex="50">
+        <h1><%=@car.year %>  <%=@car.make %> <%=@car.model %></h1>
+        <h3>$<%=@car.price%> | <%=@car.mileage %>mi</h3>
+        <h3>city:<%=@car.city%> State:<%=@car.state%> Contact:<%=@car.contact%> </h3>
         <!-- label if sold -->
-        <div class='postissold'>issold:<%= @car.issold%>
+        <h3>issold:<%= @car.issold%>
           <% if did_login? && current_user == @car.user.username%>
-         <%= form_for :car,html:{class:"issold"},url:car_path(@car.id), method: :patch do |f| %>
+           <%= form_for :car,html:{class:"issold"},url:car_path(@car.id), method: :patch do |f| %>
             <%= f.select :issold,[['No',0],['Yes',1]]%>
             <%= f.submit%>
           <% end %>
-        <% end %>
+          <% end %>
+        </h3>
+        <div class=''>Notes:<%=@car.notes%></div>
+        <div class=''><%= image_tag("/assets/user_car/#{@car.picture}") %></div>
         </div>
-        <div class='postcontact'>contact:<%=@car.contact%></div>
-        <div class='postcity'>city:<%=@car.city%></div>
-        <div class='poststate'>state:<%=@car.state%></div>
-        <div class='postnote'>notes:<%=@car.notes%></div>
-        <div class='postpicture'>picture:<%= image_tag("/assets/user_car/#{@car.picture}") %></div>
-       </div>
-</div>
-<div >
-
+      </div>
+     <hr>
 <!-- list the comment -->
 <% @car.comments.each do |comment|%>
-<div layout="row",class="comment">
+<div layout="row",class="">
   <div flex="10"></div>
-    <div  flex="20", class="reply">
-      reply:<%= comment.user.username%><br>
-      Jointime:<%= comment.user.created_at %>
+    <div  flex="20", class="">
+      <h3><%= comment.user.username%></h3>
+      <h4><%= comment.user.created_at %></h4>
     </div>
     <div class="col-sm-9">
-      <%= comment.content%>
+     <p><%= comment.content%></p>
     </div>
 </div>
 <%end%>
+<hr>
 
 
 
 
 <!-- add comment -->
 <% if did_login?%>
-<div layout="row">
+ <div layout="row">
   <div flex="10"></div>
-  <div  flex="20", class="commentadd">
-   Add a comment
-  </div>
-  <div class="col-sm-9 ">
+   <div  flex="20">
+    <h3>Add a comment<h3>
+   </div>
     <%= form_for :comment,html:{class: "content_text"}, url: car_comments_path(@car.id)  do |f| %>
-    <%= f.text_area(:content, cols: 100,rows: 5)%>
-    <p><%=f.submit%></p>
-  <%end%>
-  </div>
-</div>
+    <%= f.text_area(:content, cols: 50,rows: 5)%>
+    <md-button class="md-raised" type="submit">comment</md-button>
+    <%end%>
+ </div>
 <%end%>
+
+</div>
+</div>
