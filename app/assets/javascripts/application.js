@@ -27,7 +27,7 @@ angular.module('cartopia', ['ngMaterial'])
 		if ($("input[name='session[remember_me]']").val() == '1') {
 			$("input[name='session[remember_me]']").val("0");
 		} else {
-			$("input[name='session[remember_me]']").val("1");
+			$("input[name='session[remember_me]']").val("1");     
 		}
 	};
 	$scope.clickLogin = function () {

@@ -64,14 +64,18 @@ class CarsController < ApplicationController
   def destroy
   	@car = Car.find(params[:id])
     @car.destroy
-    redirect_to  manager_cars_path
+    redirect_to  admin_cars_path
   end
 
   def update
     @car = Car.find(params[:id])
-    @car.update(params.require(:car).permit(:issold))
-    @car.save
-    redirect_to car_path
+    if params[:issold] == "true"
+      @car.update(issold: false)
+    end
+    if params[:issold] == "false"
+      @car.update(issold: true)
+    end
+    redirect_to cars_path
   end
   def search
     @cars = Car.where(make: params[:search][:make])

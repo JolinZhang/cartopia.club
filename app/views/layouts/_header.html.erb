@@ -4,14 +4,15 @@
 		<%= link_to 'CARTOPIA', root_path %>
 		<span flex></span>
 		<%= link_to 'BUY', cars_path %>
-		<%= link_to 'SELL', new_car_path %> 
-		<%= link_to 'INFO', info_path %> 
+		<%= link_to 'SELL', new_car_path %>
+		<%= link_to 'INFO', info_path %>
 
 <% if did_login? %>
 
 <md-menu md-position-mode="target-right target" >
           <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
 			<md-icon md-font-set="material-icons">account_circle</md-icon>
+			<md-tooltip md-direction="down"><%= current_user.username%></md-tooltip>
           </md-button>
           <md-menu-content width="1" >
             <md-menu-item>

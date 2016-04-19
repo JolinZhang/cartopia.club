@@ -13,16 +13,21 @@
         <h3>$<%=@car.price%> | <%=@car.mileage %>mi</h3>
         <h3>city:<%=@car.city%> State:<%=@car.state%> Contact:<%=@car.contact%> </h3>
         <!-- label if sold -->
-        <h3>issold:<%= @car.issold%>
-          <% if did_login? && current_user == @car.user.username%>
-           <%= form_for :car,html:{class:"issold"},url:car_path(@car.id), method: :patch do |f| %>
-            <%= f.select :issold,[['No',0],['Yes',1]]%>
-            <%= f.submit%>
-          <% end %>
-          <% end %>
+
+
+        <md-button ng-href="<%=car_path(@car.id,:issold => @car.issold)%>" data-method="patch" class="md-fab md-mini md-ink-ripple">
+            <% if @car.issold==true%>
+      			<md-icon md-font-set="material-icons">shopping_basket</md-icon>
+      			<md-tooltip md-direction="top">Sold_True</md-tooltip>
+            <% else %>
+      			<md-icon md-font-set="material-icons">shopping_basket</md-icon>
+      			<md-tooltip md-direction="top">Sold_False</md-tooltip>
+           <% end %>
+       	</md-button>
+
         </h3>
         <div class=''>Notes:<%=@car.notes%></div>
-        <div class=''><%= image_tag("/assets/user_car/#{@car.picture}") %></div>
+        <div class=''><%= image_tag("/assets/user_car/#{@car.picture}",class:"imagecar") %></div>
         </div>
       </div>
      <hr>

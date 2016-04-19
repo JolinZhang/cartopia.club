@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def new
 		if did_login?
 			redirect_to user_cars_path(current_user)
-		else 
+		else
 			@user = User.new()
 		end
   end
@@ -21,9 +21,9 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to users_path
+    redirect_to  admin_users_path
   end
-	def favs 
+	def favs
 		@favs = current_user.favorites.order(created_at: :desc)
 		@cars = @favs.collect {|fav| fav.car}
 	end
@@ -32,11 +32,12 @@ class UsersController < ApplicationController
 	end
   def update
     @user = User.find(params[:id])
-    if params.require(:user).permit(:isadmin)["isadmin"].to_i == 0
+    if params[:isadmin] == "true"
       @user.update(isadmin: false)
-    else
+    end
+    if params[:isadmin] == "false"
       @user.update(isadmin: true)
     end
-    redirect_to users_path
+    redirect_to admin_users_path
   end
 end
