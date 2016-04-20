@@ -58,7 +58,7 @@ $(document).on('ready page:load', function(arguments) {
 });
 
 $(function() {
-$("input[name='car[picture]']").on('change',function() {
-	$('#filename').text($("input[name='car[picture]']").val());
-});
+	$("input[name='car[picture]']").on('change',function() {
+		$('#filename').text($("input[name='car[picture]']").val());
+	});
 });
