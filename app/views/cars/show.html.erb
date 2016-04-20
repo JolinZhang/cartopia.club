@@ -52,6 +52,7 @@
 		<% end %>
 	</md-card>
 <% end %>
+<% if did_login? %>
 	<md-card layout="row" layout-padding>
 		<div>
 			<md-button class="md-fab"><md-icon md-font-set="material-icons">comment</md-icon></md-button>
@@ -65,6 +66,7 @@
     <md-button class="md-raised" type="submit">comment</md-button>
     <%end%>
 	</md-card>
+<% end %>
 
 </div>
 <div flex="10" hide-xs hide-sm></div>
