@@ -1,0 +1,88 @@
+<div layout="row">
+
+<%= @car.errors.first %> 
+<div flex="10" hide-xs></div>
+
+<div layout="column" flex>
+	<md-card>
+		<md-card-content>
+			<%= form_for :car , url: cars_path, remote: true do |f| %>
+
+			<div layout="row">
+
+			<%= f.text_field :year, :style => 'display: none'%><br>
+			<%= f.text_field :make, :style => 'display: none'%><br>
+			<%= f.text_field :state, :style => 'display: none'%><br>
+
+			<md-input-container flex>
+			<%= render 'cars/yearSelect' %>
+      </md-input-container>
+
+			<md-input-container flex>
+			<%= render 'cars/makeSelect' %>
+      </md-input-container>
+
+			<md-input-container flex="50">
+				<label>Model</label>
+				<%= f.text_field :model %><br>
+			</md-input-container>
+
+			</div>
+
+			<div layout="row">
+			<md-input-container flex="50">
+				<label>Mileage</label>
+				<%= f.text_field :mileage %><br>
+			</md-input-container>
+			<md-input-container flex="50">
+				<label>Price</label>
+				<%= f.text_field :price %><br>
+			</md-input-container>
+
+			</div>
+
+			<div layout="row">
+			<md-input-container flex="50">
+				<%= render 'cars/stateSelect' %>
+      </md-input-container>
+
+			<md-input-container flex="50">
+				<label>City</label>
+				<%= f.text_field :city %><br>
+			</md-input-container>
+
+			</div>
+
+			<div layout="column">
+			<md-input-container>
+				<label>Contact</label>
+				<%= f.text_field :contact %><br>
+			</md-input-container>
+			</div>
+
+
+			<%= f.text_area(:notes, cols: 30,rows: 1, :style=> 'display:none' )%>
+			<md-input-container class="md-block">
+          <label>Notes</label>
+          <textarea ng-change="notesChange()" ng-model="notes" md-maxlength="256" rows="5" md-select-on-focus></textarea>
+			</md-input-container>
+
+			<div layout="row">
+			<%= f.file_field :picture, :style=> 'display:none' %>
+			<label for="car_picture" class="md-button md-raised">Choose File</label>
+			<div id="filename"></div>
+
+			<div flex></div>
+
+			<md-button class="md-raised" type="submit">SUBMIT</md-button>
+
+			</div>
+
+			<% end %>
+		</md-card-content>
+	</md-card>
+</div>
+
+<div flex="10" hide-xs></div>
+
+</div>

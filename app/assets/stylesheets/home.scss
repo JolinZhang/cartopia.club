@@ -1,0 +1,39 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.banner {
+	display: table;
+	width: 100%;
+	height: 0;
+	background-image: url('home/banner_crv2.jpg');
+	background-position: 0% 0%;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.banner span {
+	background-color: rgba(51,51,51,0.5);
+	font-size: 80px;
+	font-weight: bold;
+	color:white;
+	display: table-cell;
+	height:400px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+@media (max-width: 767px) {
+	.banner span {
+		font-size: 50px;
+		height:300px;
+	}
+}
+
+md-card-title-text, md-card-content {
+	text-align: center;
+}
+
+.home_card_content {
+	text-align: center;
+}

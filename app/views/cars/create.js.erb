@@ -1,0 +1,28 @@
+$('.md-errors-spacer:eq(0)').text("");
+$('.md-errors-spacer:eq(1)').text("");
+$('.md-errors-spacer:eq(2)').text("");
+$('.md-errors-spacer:eq(3)').text("");
+$('.md-errors-spacer:eq(4)').text("");
+$('.md-errors-spacer:eq(5)').text("");
+$('.md-errors-spacer:eq(6)').text("");
+$('.md-errors-spacer:eq(7)').text("");
+$('.md-errors-spacer:eq(8)').text("");
+<% if @car.errors[:year].count != 0 %>
+$('.md-errors-spacer:eq(0)').text("year <%= @car.errors[:year].first%>");
+<% elsif @car.errors[:make].count != 0 %>
+$('.md-errors-spacer:eq(1)').text("make <%= @car.errors[:make].first%>");
+<% elsif @car.errors[:model].count != 0 %>
+$('.md-errors-spacer:eq(2)').text("model <%= @car.errors[:model].first%>");
+<% elsif @car.errors[:mileage].count != 0 %>
+$('.md-errors-spacer:eq(3)').text("mileage <%= @car.errors[:mileage].first%>");
+<% elsif @car.errors[:price].count != 0 %>
+$('.md-errors-spacer:eq(4)').text("price <%= @car.errors[:price].first%>");
+<% elsif @car.errors[:state].count != 0 %>
+$('.md-errors-spacer:eq(5)').text("state <%= @car.errors[:state].first%>");
+<% elsif @car.errors[:city].count != 0 %>
+$('.md-errors-spacer:eq(6)').text("city <%= @car.errors[:city].first%>");
+<% elsif @car.errors[:contact].count != 0 %>
+$('.md-errors-spacer:eq(7)').text("contact <%= @car.errors[:contct].first%>");
+<% else %>
+window.location.href = '<%= user_cars_path(current_user)%>'
+<% end %>

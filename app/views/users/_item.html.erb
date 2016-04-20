@@ -1,0 +1,51 @@
+
+<% @users = pagination(@users) %>
+<md-card layout="row">
+<div flex layout-padding>
+<% @users.each do |user| %>
+			<md-list flex>
+        <md-list-item class="md-2-line" ng-cloak>
+					<div class="md-list-item-text" layout="column">
+						<div><md-icon md-font-set="material-icons">person</md-icon> <%= user.username%>
+						</div>
+						<div><md-icon md-font-set="material-icons">mail_outline</md-icon> <%= user.email%></div>
+          </div>
+					<% if user.isadmin==true %>
+						<span class="admin">admin</span>
+					<% end %>
+					<div flex></div>
+<md-fab-speed-dial md-direction="left" class="md-fling">
+  <md-fab-trigger>
+    <md-button class="md-fab md-primary md-button md-ink-ripple"><md-icon md-font-set="material-icons">mode_edit</md-icon></md-button>
+  </md-fab-trigger>
+  <md-fab-actions>
+		<% if current_user.username != user.username %>
+    <md-button ng-href="<%=user_path(user.id)%>" data-method="delete" class="md-fab md-mini md-ink-ripple">
+			<md-icon md-font-set="material-icons">delete</md-icon>
+			<md-tooltip md-direction="top">Delete</md-tooltip>
+		</md-button>
+    <% end %>
+
+		<md-button ng-href="<%=user_path(user.id,:isadmin => user.isadmin)%>" data-method="patch" class="md-fab md-mini md-ink-ripple">
+      <% if user.isadmin==true%>
+			<md-icon md-font-set="material-icons">file_download</md-icon>
+			<md-tooltip md-direction="top">Unset Admin</md-tooltip>
+      <% else %>
+			<md-icon md-font-set="material-icons">file_upload</md-icon>
+			<md-tooltip md-direction="top">Set Admin</md-tooltip>
+     <% end %>
+ 	</md-button>
+
+
+
+
+
+  </md-fab-actions>
+</md-fab-speed-dial>
+        </md-list-item>
+      </md-list>
+<md-divider ></md-divider>
+<%end%>
+	<%= will_paginate @users %>
+</md-card>
+</div>

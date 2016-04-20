@@ -1,0 +1,61 @@
+<md-toolbar class="md-tall header-toolbar">
+	<div class="md-toolbar-tools">
+		<span flex="10" hide-sm hide-xs></span>
+		<%= link_to 'CARTOPIA', root_path %>
+		<span flex></span>
+		<%= link_to 'BUY', cars_path %>
+		<%= link_to 'SELL', new_car_path %>
+		<%= link_to 'INFO', info_path %>
+
+<% if did_login? %>
+
+<md-menu md-position-mode="target-right target" >
+          <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+			<md-icon md-font-set="material-icons">account_circle</md-icon>
+			<md-tooltip md-direction="down"><%= current_user.username%></md-tooltip>
+          </md-button>
+          <md-menu-content width="1" >
+            <md-menu-item>
+              <md-button ng-href="<%=user_cars_path(current_user)%>">
+                MY CARS
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button ng-href="<%=user_favs_path(current_user)%>">
+								MY FAVS
+              </md-button>
+            </md-menu-item>
+
+            <md-menu-item>
+              <md-button ng-href="<%=logout_path%>" data-method="delete">
+                  LOGOUT
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
+
+<% else %>
+
+<md-menu md-position-mode="target-right target" >
+          <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+			<md-icon md-font-set="material-icons">account_circle</md-icon>
+          </md-button>
+          <md-menu-content width="1" >
+            <md-menu-item>
+              <md-button ng-href="<%= login_path%>">
+                LOGIN
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button ng-href="<%= new_user_path %>">
+                SIGNUP
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
+<% end %>
+
+
+		<span flex="10" hide-sm hide-xs></span>
+	</div>
+</md-toolbar>

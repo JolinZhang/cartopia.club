@@ -1,14 +1,23 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html> <html>
 <head>
-  <title>CartopiaClub</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <title>Cartopia</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<%= yield %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <%= stylesheet_link_tag    'application', controller_name,  media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= csrf_meta_tags %>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body ng-app="cartopia" ng-controller="AppCtrl">
+
+	<%= render 'layouts/header' %>
+
+  <%= yield %>
+
+	<%= render 'layouts/footer' %>
 
 </body>
+
 </html>

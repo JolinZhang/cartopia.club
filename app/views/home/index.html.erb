@@ -1,0 +1,35 @@
+<div layout="column">
+
+	<div layout="row">
+		<div flex="10" hide-xs hide-sm></div>
+		<div flex layout="row">
+			<md-card flex layout="column">
+				<div class="banner">
+					<span>CAR'S PLACE</span>
+				</div>
+			</md-card>
+		</div>
+		<div flex="10" hide-xs hide-sm></div>
+	</div>
+
+
+	<div layout="row" layout-xs="column">
+		<div flex="10" hide-xs hide-sm></div>
+			<md-card flex layout="column" layout-align="space-around center" layout-padding>
+					<span class="md-headline">BUY</span>
+					<p class="home_card_content">Find a car that fits you perfectly.</p>
+          <md-button ng-href="<%=cars_path%>">BROWSE CARS</md-button>
+      </md-card>
+			<md-card flex layout="column" layout-align="space-around center" layout-padding>
+            <span class="md-headline">SELL</span>
+						<p class="home_card_content">Let's see if anyone is interested in your car.</p>
+          <md-button ng-href="<%=new_car_path%>">SELL MY CAR</md-button>
+      </md-card>
+			<md-card flex layout="column" layout-align="space-around center" layout-padding>
+            <span class="md-headline">INFO</span>
+						<p class="home_card_content">Do you wanna know more about cars?</p>
+          <md-button ng-href="<%=info_path%>">GET CAR INFO</md-button>
+      </md-card>
+		<div flex="10" hide-xs hide-sm></div>
+	</div>
+</div>

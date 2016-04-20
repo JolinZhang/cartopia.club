@@ -1,0 +1,72 @@
+
+<div layout="row">
+
+<div flex="10" hide-xs hide-sm></div>
+
+<div flex layout="column">
+<md-card layout="row" layout-xs="column">
+	<div class="car_show_img" style="background-image: url('/assets/user_car/<%=@car.picture.to_s%>');">
+	</div>
+
+	<div flex layout-padding>
+            <div class="md-headline"><%=@car.year%> <%=@car.make%> <%=@car.model%></div>
+						<div><span class="md-display-1">$<%=@car.price%> </span>	<span class="md-headline"> <%=@car.mileage%> mi</span> </div>
+						<div>
+						<md-button class='md-icon-button'><md-icon md-font-set="material-icons">location_on</md-icon></md-button>
+						 <%=@car.city%>, <%=@car.state%></div>
+						<div>
+						<md-button class='md-icon-button'><md-icon md-font-set="material-icons">person</md-icon></md-button>
+						<%=@car.user.username.capitalize%></div>
+						<div>
+						<md-button class='md-icon-button'><md-icon md-font-set="material-icons">phone</md-icon></md-button>
+						<%=@car.contact%></div>
+
+						<div>
+						<md-button class='md-icon-button'><md-icon md-font-set="material-icons">date_range</md-icon></md-button>
+						<%=@car.created_at.strftime("%d %b. %Y, %H:%M") %></div>
+
+						<% if @car.notes != nil %>
+						<div>
+						<md-button class='md-icon-button'><md-icon md-font-set="material-icons">note</md-icon></md-button>
+						<%=@car.notes%>
+						</div>
+						<% end %>
+						</div>
+</md-card>
+
+<% @car.comments.each do |comment| %>
+
+	<md-card layout="row" layout-padding>
+		<div>
+			<md-button class="md-fab"><md-icon md-font-set="material-icons">comment</md-icon></md-button>
+		</div>
+		<div flex= layout="column"  layout-align="space-between start">
+			<div><%= comment.user.username.capitalize %> said:</div>
+			<div class="md-title" layout-padding><%= comment.content %></div>
+			<div><%= comment.created_at.strftime("%d %b. %Y, %H:%M") %></div>
+		</div>
+		<% if current_user.isadmin %>
+		<div layout="column" layout-align="center center">
+			<md-button class="md-button md-raised">DELETE</md-button>
+		</div>
+		<% end %>
+	</md-card>
+<% end %>
+	<md-card layout="row" layout-padding>
+		<div>
+			<md-button class="md-fab"><md-icon md-font-set="material-icons">comment</md-icon></md-button>
+		</div>
+    <%= form_for :comment,html:{ flex: "", layout: "row", 'layout-align': "start start"}, url: car_comments_path(@car.id)  do |f| %>
+    <%= f.text_area(:content, cols: 1,rows: 1, :style => 'display: none')%>
+    <md-input-container class="md-block" flex>
+        <label>Comment</label>
+        <textarea ng-change="contentChanged()" ng-model="comment" md-maxlength="256" rows="5" md-select-on-focus></textarea>
+    </md-input-container>
+    <md-button class="md-raised" type="submit">comment</md-button>
+    <%end%>
+	</md-card>
+
+</div>
+<div flex="10" hide-xs hide-sm></div>
+</div>
+
