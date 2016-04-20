@@ -10,9 +10,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
 	delete 'logout'  => 'sessions#destroy'
 
-	get		'/info/buy' => 'info#buy', as: :info_buy
-	get		'/info/inspection' => 'info#inspection', as: :info_inspection
-	get		'/info/insurance' => 'info#insurance', as: :info_insurance
+	get		'/info/' => 'info#index', as: :info
 
 
 	resources :users do
@@ -28,7 +26,7 @@ Rails.application.routes.draw do
 
 	get '/admin/cars' => 'admin#cars', as: :admin_cars
 	get '/admin/users' => 'admin#users', as: :admin_users
-  post '/cars/search' => 'cars#search', as: :cars_search
+  post '/cars/s/search' => 'cars#search', as: :cars_search
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

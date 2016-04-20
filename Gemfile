@@ -45,4 +45,8 @@ group :development do
   gem 'spring'
 
 	gem 'will_paginate', '~> 3.0.6'
+
+	gem 'angularjs-rails'
+	gem 'rails-angular-material'
+  gem 'remotipart', '~> 1.2'
 end

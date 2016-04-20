@@ -12,5 +12,47 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.remotipart
 //= require turbolinks
 //= require_tree .
+//= require angular
+//= require angular-animate
+//= require angular-aria
+//= require angular-messages
+//= require angular-material
+
+angular.module('cartopia', ['ngMaterial'])
+.controller('AppCtrl', function($scope) {
+	$scope.toggleRemember = function () {
+		if ($("input[name='session[remember_me]']").val() == '1') {
+			$("input[name='session[remember_me]']").val("0");
+		} else {
+			$("input[name='session[remember_me]']").val("1");     
+		}
+	};
+	$scope.clickLogin = function () {
+		$("input[name='commit']").click();
+	};
+	$scope.clickSignup = function () {
+		$("input[name='commit']").click();
+	};
+	$scope.yearSelected = function () {
+		$("input[name='car[year]']").val($scope.year+"");
+	};
+	$scope.makeSelected = function () {
+		$("input[name='car[make]']").val($scope.make+"");
+	};
+	$scope.stateSelected = function () {
+		$("input[name='car[state]']").val($scope.state+"");
+	};
+	$scope.contentChanged = function(){
+		$("textarea[name='comment[content]']").val($scope.comment+"");
+	};
+	$scope.notesChange = function(){
+		$("textarea[name='car[notes]']").val($scope.notes+"");
+	};
+});
+
+$(document).on('ready page:load', function(arguments) {
+	angular.bootstrap(document.body, ['cartopia'])
+});

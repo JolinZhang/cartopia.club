@@ -2,22 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// css for cars list
-.dropdown{
-  text-align: right;
-  margin-right: 50px;
-}
-.pagination{
-  text-align: center;
-  display: block;
-}
-/*css for new car;*/
-.main{
-  padding-top: 50px;
-	padding-bottom: 50px;
-	background-color: #eee;
-}
 
-#car_picture{
-display: inline-block;
+// css for car show
+.page-container {
+  background-color: #f1f1f1;
+  padding: 32px; }
+.page {
+  margin: 0 auto;
+  background-color: white;
+  padding: 24px;
+  max-width: 680px;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.25); }
+.page h1 {
+  font-size: 1.8rem;
+  margin-top: 0;
+  font-weight: normal; }
+  .page h3 {
+    font-size: 1rem;
+    margin-top: 0;
+    font-weight: normal; }
+.page p {
+  line-height: 1.6rem; }
+
+
+// css for  car image
+.imagecar{
+  width:100%;
+  height:auto;
 }

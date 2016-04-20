@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    angularjs-rails (1.5.0)
     arel (6.0.3)
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
@@ -88,6 +89,7 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.6)
       sprockets-rails
+    rails-angular-material (1.0.5)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -104,6 +106,7 @@ GEM
     rake (11.1.1)
     rdoc (4.2.2)
       json (~> 1.4)
+    remotipart (1.2.1)
     sass (3.4.21)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -144,12 +147,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  angularjs-rails
   bcrypt (~> 3.1.7)
   byebug
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.2.6)
+  rails-angular-material
+  remotipart (~> 1.2)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

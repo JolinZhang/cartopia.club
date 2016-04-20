@@ -1,8 +1,15 @@
-<ul>
-<li><%= link_to 'my cars', user_cars_path(current_user)%><br></li>
-<li><%= link_to 'my favs', user_favs_path(current_user)%><br></li>
+
+<div layout="row" layout-xs="column">
+	<div flex="10" hide-xs hide-sm></div>
+	<div flex-gt-sm="20" flex-sm="30">
+	<md-card layout="column" layout-xs="row" layout-padding layout-align="space-around stretch">
+<md-button class="md-raised" ng-href="<%=user_cars_path(current_user)%>">MY CARS</md-button>
+<md-button class="md-raised" ng-href="<%=user_favs_path(current_user)%>">MY FAVS</md-button>
 <% if current_user.isadmin == true%>
-	<li><%= link_to 'manage cars', admin_cars_path%><br></li>
-	<li><%= link_to 'manage users', admin_users_path%><br></li>
+<md-button class="md-raised" ng-href="<%=admin_cars_path%>">MANAGE CARS</md-button>
+<md-button class="md-raised" ng-href="<%=admin_users_path%>">MANAGE USERS</md-button>
 <%end%>
-</ul>
+</md-card>
+</div>
+	<div flex>
+

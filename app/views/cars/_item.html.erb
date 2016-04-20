@@ -1,31 +1,38 @@
 <% @cars = pagination(@cars) %>
 
+<div layout="row">
+<div flex>
   <% @cars.each do |car| %>
-	<div class="row content carlist">
-
-    <div class="col-sm-3 ">
-      <div class=""><%= image_tag("/assets/user_car/#{car.picture}", :alt => "rss feed") %></div>
-    </div>
-		<div class="col-sm-5 ">
-    <%= link_to car_path(car.id) do %>
-      <div class="cartitle">
-      <div class="caryear"><%=car.year%></div>
-      <div class="carmake"><%=car.make%></div>
-      <div class="carmodel"><%=car.model%></div>
-    </div>
-      <div class="carprice">$<%=car.price%></div>
-      <div class="carmileage"><%=car.mileage%>mi</div>
-      <div class="carlocation"><%=car.state%>|<%=car.city%></div>
-		</div>
-    <div class="col-sm-4 ">
-			<div class="carseller">post by:<%=car.user.username%></div>
-      <div class="carcontact">contact:<%=car.contact%></div>
-      <% if did_login?%>
-      <div class=""><%= link_to"Favorite", user_favorites_path(current_user.id), data: {params: {car_id: car.id}.to_param, method: :post, remote: true},
-		 :class=>"favorite"	%></div>
-      <% end %>
-    <%end %>
-  </div>
-</div>
+<md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline"><%=car.year%> <%=car.make%> <%=car.model%> </span>
+            <span class="md-subhead">$<%=car.price%>  <%=car.mileage%>mi</span>
+            <span class="md-subhead"><%=car.state%>|<%=car.city%></span>
+            <span class="md-subhead">post by:<%=car.user.username%></span>
+            <span class="md-subhead">contact:<%=car.contact%></span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media" style="background-image: url('/assets/user_car/<%=car.picture.to_s%>');"></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <% if did_login? && Favorite.where(car_id: car.id, user_id: current_user.id).count == 0 %>
+          <md-button class='md-icon-button' ng-href="<%= user_favorites_path(current_user.id, :car_id => car.id)%>" data-method="post"><md-icon style="color: rgb(255, 82, 82);" md-font-set="material-icons">favorite_border</md-icon></md-button>
+          <% end %>
+          <% if did_login? &&  Favorite.where(car_id: car.id, user_id: current_user.id).count != 0 %>
+          <% @fav = Favorite.where(car_id: car.id, user_id: current_user.id).ids%>
+          <md-button class='md-icon-button' ng-href="<%= user_favorite_path(current_user.id, @fav.first)%>" data-method="delete"><md-icon style="color: rgb(255, 82, 82);" md-font-set="material-icons">favorite</md-icon></md-button>
+          <% end %>
+          <%= link_to car_path(car.id) do %>
+          <md-icon md-font-set="material-icons">description</md-icon>
+          <%end%>
+          <% if did_login? &&  current_user.isadmin == true%>
+          <md-button class='md-icon-button' ng-href="<%= car_path(car.id)%>" data-method="delete"><md-icon md-font-set="material-icons">delete</md-icon></md-button>
+    			<% end %>
+        </md-card-actions>
+      </md-card>
   <% end %>
   <%= will_paginate @cars %>
+</div>
+</div>

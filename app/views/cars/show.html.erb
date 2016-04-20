@@ -1,56 +1,65 @@
-<div class="container-fluid">
-  <div class="row content post">
-       <div class="col-sm-3 ">
-        <div class='postname'>PostBy:<%=@car.user.username %></div>
-        <div class='postcreatetime'>createtime:<%=@car.created_at%></div>
-        <div class='postupdatetime'>updatetime:<%=@car.updated_at%></div>
-       </div>
-       <div class="col-sm-9 ">
-        <div class='postyear'>year:<%=@car.year %></div>
-        <div class='postmake'>make:<%=@car.make %></div>
-        <div class='postmodel'>model:<%=@car.model %></div>
-        <div class='postmileage'>mileage:<%=@car.mileage %></div>
-        <div class='postprice'>price:<%=@car.price%></div>
-        <!-- label if sold -->
-        <div class='postissold'>issold:<%= @car.issold%>
-          <% if did_login? && current_user == @car.user.username%>
-         <%= form_for :car,html:{class:"issold"},url:car_path(@car.id), method: :patch do |f| %>
-            <%= f.select :issold,[['No',0],['Yes',1]]%>
-            <%= f.submit%>
-          <% end %>
-        <% end %>
+<div class="page-container">
+   <div class="page">
+
+     <div layout="row">
+        <div flex="10"></div>
+        <div flex="20">
+        <h1><%=@car.user.username %></h1>
+        <p><%=@car.created_at%></p>
+        <p><%=@car.updated_at%></p>
         </div>
-        <div class='postcontact'>contact:<%=@car.contact%></div>
-        <div class='postcity'>city:<%=@car.city%></div>
-        <div class='poststate'>state:<%=@car.state%></div>
-        <div class='postnote'>notes:<%=@car.notes%></div>
-        <div class='postpicture'>picture:<%= image_tag("/assets/user_car/#{@car.picture}") %></div>
-       </div>
-</div>
+        <div flex="50">
+        <h1><%=@car.year %>  <%=@car.make %> <%=@car.model %></h1>
+        <h3>$<%=@car.price%> | <%=@car.mileage %>mi</h3>
+        <h3>city:<%=@car.city%> State:<%=@car.state%> Contact:<%=@car.contact%> </h3>
+        <!-- label if sold -->
+
+
+        <md-button ng-href="<%=car_path(@car.id,:issold => @car.issold)%>" data-method="patch" class="md-fab md-mini md-ink-ripple">
+            <% if @car.issold==true%>
+      			<md-icon md-font-set="material-icons">shopping_basket</md-icon>
+      			<md-tooltip md-direction="top">Sold_True</md-tooltip>
+            <% else %>
+      			<md-icon md-font-set="material-icons">shopping_basket</md-icon>
+      			<md-tooltip md-direction="top">Sold_False</md-tooltip>
+           <% end %>
+       	</md-button>
+
+        </h3>
+        <div class=''>Notes:<%=@car.notes%></div>
+        <div class=''><%= image_tag("/assets/user_car/#{@car.picture}",class:"imagecar") %></div>
+        </div>
+      </div>
+     <hr>
 <!-- list the comment -->
 <% @car.comments.each do |comment|%>
-<div class="row content comment">
-    <div class="col-sm-3 reply">
-      reply:<%= comment.user.username%><br>
-      Jointime:<%= comment.user.created_at %>
+<div layout="row",class="">
+  <div flex="10"></div>
+    <div  flex="20", class="">
+      <h3><%= comment.user.username%></h3>
+      <h4><%= comment.user.created_at %></h4>
     </div>
     <div class="col-sm-9">
-      <%= comment.content%>
+     <p><%= comment.content%></p>
     </div>
 </div>
 <%end%>
 <!-- add comment -->
 <% if did_login?%>
-<div class="row content">
-  <div class="col-sm-3 commentadd">
-   Add a comment
-  </div>
-  <div class="col-sm-9 ">
-    <%= form_for :comment,html:{class: "content_text"}, url: car_comments_path(@car.id)  do |f| %>
-    <%= f.text_area(:content, cols: 100,rows: 5)%>
-    <p><%=f.submit%></p>
-  <%end%>
-  </div>
-</div>
+ <div layout="row">
+  <div flex="10"></div>
+   <div  flex="20">
+   </div>
+    <%= form_for :comment,html:{ flex: "70"}, url: car_comments_path(@car.id)  do |f| %>
+    <%= f.text_area(:content, cols: 1,rows: 1, :style => 'display: none')%>
+    <md-input-container class="md-block">
+        <label>Comment</label>
+        <textarea ng-change="contentChanged()" ng-model="comment" md-maxlength="256" rows="5" md-select-on-focus></textarea>
+    </md-input-container>
+    <md-button class="md-raised" type="submit">comment</md-button>
+    <%end%>
+ </div>
 <%end%>
+
+</div>
 </div>

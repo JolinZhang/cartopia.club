@@ -1,0 +1,9 @@
+$('.md-errors-spacer:eq(0)').text("");
+$('.md-errors-spacer:eq(1)').text("");
+<% if @login_fail == 1 %>
+$('.md-errors-spacer:eq(0)').text("username incorrect");
+<% elsif @login_fail == 2 %>
+$('.md-errors-spacer:eq(1)').text("password doesn't match");
+<% else %>
+window.location.href = '/'
+<% end %>

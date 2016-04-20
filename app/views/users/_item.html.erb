@@ -1,13 +1,45 @@
 
 <% @users = pagination(@users) %>
+<md-card layout="row">
+<div flex layout-padding>
 <% @users.each do |user| %>
-username:<%=user.username%>
-emial:<%= user.email%>
-isadmin:<%= user.isadmin%>
-<%= form_for :user, url:user_path(user.id),method: :patch do |f|%>
-<%= f.select :isadmin,[['No',0],['Yes',1]]%>
-<%= f.submit %>
-<%end%>
-<%= link_to 'Delete', user_path(user.id),method: :delete, data:{confirm: ' Are you sure'}%><br>
+			<md-list flex>
+        <md-list-item class="md-1-line" ng-cloak>
+					<%= user.username%><br>
+					<%= user.email%>
+					<div flex></div>
+<md-fab-speed-dial md-direction="left" class="md-fling">
+  <md-fab-trigger>
+    <md-button class="md-fab md-primary md-button md-ink-ripple"><md-icon md-font-set="material-icons">mode_edit</md-icon></md-button>
+  </md-fab-trigger>
+  <md-fab-actions>
+		<% if current_user.username != user.username %>
+    <md-button ng-href="<%=user_path(user.id)%>" data-method="delete" class="md-fab md-mini md-ink-ripple">
+			<md-icon md-font-set="material-icons">delete</md-icon>
+			<md-tooltip md-direction="top">Delete</md-tooltip>
+		</md-button>
+    <% end %>
+
+		<md-button ng-href="<%=user_path(user.id,:isadmin => user.isadmin)%>" data-method="patch" class="md-fab md-mini md-ink-ripple">
+      <% if user.isadmin==true%>
+			<md-icon md-font-set="material-icons">file_download</md-icon>
+			<md-tooltip md-direction="top">Admin</md-tooltip>
+      <% else %>
+			<md-icon md-font-set="material-icons">file_upload</md-icon>
+			<md-tooltip md-direction="top">DelAdmin</md-tooltip>
+     <% end %>
+ 	</md-button>
+
+
+
+
+
+  </md-fab-actions>
+</md-fab-speed-dial>
+        </md-list-item>
+      </md-list>
+<md-divider ></md-divider>
 <%end%>
 	<%= will_paginate @users %>
+</md-card>
+</div>

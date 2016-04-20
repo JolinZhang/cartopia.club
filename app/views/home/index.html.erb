@@ -1,35 +1,65 @@
-<div class="banner">
-	<span>CARS' PLACE</span>
-</div>
+<div layout="column">
 
-<div class="container text-center">
-  <div class="row">
-    <div class="col-sm-4">
-			<div class="feature-title">BUY</div>
-			<div class="feature-text">Find a car that fits you perfectly.</div>
-			<div class="feature-button">
-			<%= link_to do%>
-				<button type="button" class="btn btn-default">BROWSE CARS</button>
-			<% end %>
-			</div>
+	<div layout="row">
+		<div flex="10" hide-xs hide-sm></div>
+		<div flex layout="row">
+			<md-card flex layout="column">
+				<div class="banner">
+					<span>CAR'S PLACE</span>
+				</div>
+			</md-card>
 		</div>
-    <div class="col-sm-4">
-			<div class="feature-title">SELL</div>
-			<div class="feature-text">Let's see if anyone is interested in your car.</div>
-			<div class="feature-button">
-			<%= link_to do%>
-				<button type="button" class="btn btn-default">SELL MY CAR</button>
-			<% end %>
-			</div>
-    </div>
-    <div class="col-sm-4">
-			<div class="feature-title">INFO</div>
-			<div class="feature-text">Do you wanna know more about cars?</div>
-			<div class="feature-button">
-			<%= link_to do%>
-				<button type="button" class="btn btn-default">GET CAR INFO</button>
-			<% end %>
-			</div>
-    </div>
-  </div>
+		<div flex="10" hide-xs hide-sm></div>
+	</div>
+
+
+	<div layout="row" layout-xs="column">
+		<div flex="10" hide-xs hide-sm></div>
+		<div flex layout="row">
+			<md-card flex>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">BUY</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <p>Find a car that fits you perfectly.</p>
+        </md-card-content>
+        <md-card-actions layout="column" layout-align="center center">
+          <md-button class="md-raised" ng-href="<%=cars_path%>">BROWSE CARS</md-button>
+        </md-card-actions>
+      </md-card>
+		</div>
+		<div flex layout="row">
+			<md-card flex>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">SELL</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <p>Let's see if anyone is interested in your car.</p>
+        </md-card-content>
+        <md-card-actions layout="column" layout-align="center center">
+          <md-button class="md-raised" ng-href="<%=new_car_path%>">SELL MY CAR</md-button>
+        </md-card-actions>
+      </md-card>
+		</div>
+		<div flex layout="row">
+			<md-card flex>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">INFO</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <p>Do you wanna know more about cars?</p>
+        </md-card-content>
+        <md-card-actions layout="column" layout-align="center center">
+          <md-button class="md-raised" ng-href="<%=info_path%>">GET CAR INFO</md-button>
+        </md-card-actions>
+      </md-card>
+		</div>
+		<div flex="10" hide-xs hide-sm></div>
+	</div>
 </div>

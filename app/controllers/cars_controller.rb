@@ -33,6 +33,7 @@ class CarsController < ApplicationController
 
 	def create
 		@car = Car.new(params.require(:car).permit(:year, :make, :model, :mileage, :price, :contact, :city, :state,:notes))
+		respond_to do |format|
 		@car.user_id = current_user.id
 		@car.issold = false
 		if @car.save
@@ -49,9 +50,10 @@ class CarsController < ApplicationController
         @car.picture = 'default.jpg'
         @car.save
       end
-			redirect_to  cars_path
+			format.js {  }
 	  else
-			render 'new'
+			format.js {  }
+		end
 		end
 	end
 
@@ -62,17 +64,30 @@ class CarsController < ApplicationController
   def destroy
   	@car = Car.find(params[:id])
     @car.destroy
-    redirect_to  manager_cars_path
+    redirect_to  admin_cars_path
   end
 
   def update
     @car = Car.find(params[:id])
-    @car.update(params.require(:car).permit(:issold))
-    @car.save
-    redirect_to car_path
+    if params[:issold] == "true"
+      @car.update(issold: false)
+    end
+    if params[:issold] == "false"
+      @car.update(issold: true)
+    end
+    redirect_to cars_path
   end
   def search
-    @cars = Car.where(make: params[:search][:make])
-    redirect_to cars_path
+		@cars = Car.all
+		if params[:car][:make] != ""
+			@cars = @cars.select{|a| a.make.downcase == params[:car][:make].downcase}
+		end
+		if params[:car][:model] != ""
+			@cars = @cars.select{|a| a.model.downcase == params[:car][:model].downcase}
+		end
+		if params[:car][:year] != ""
+			@cars = @cars.select{|a| a.year.to_s == params[:car][:year]}
+		end
+		render 'cars/index'
   end
 end
