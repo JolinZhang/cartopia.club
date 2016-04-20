@@ -1,7 +1,6 @@
 <div layout="row">
 
-<%= @car.errors.first %>
-
+<%= @car.errors.first %> 
 <div flex="10" hide-xs></div>
 
 <div layout="column" flex>
@@ -70,7 +69,8 @@
 
 			<div layout="row">
 			<%= f.file_field :picture, :style=> 'display:none' %>
-			<label for="car_picture" class="md-button md-raised">Choose Files</label>
+			<label for="car_picture" class="md-button md-raised">Choose File</label>
+			<div id="filename"></div>
 
 			<div flex></div>
 

@@ -56,3 +56,9 @@ angular.module('cartopia', ['ngMaterial'])
 $(document).on('ready page:load', function(arguments) {
 	angular.bootstrap(document.body, ['cartopia'])
 });
+
+$(function() {
+$("input[name='car[picture]']").on('change',function() {
+	$('#filename').text($("input[name='car[picture]']").val());
+});
+});

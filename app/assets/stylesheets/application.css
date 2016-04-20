@@ -56,3 +56,7 @@ div {
 md-input-container .md-errors-spacer {
 	min-height: 0;
 }
+
+#filename {
+	padding-top: 15px;
+}
