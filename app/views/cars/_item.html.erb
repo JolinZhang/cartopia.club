@@ -25,7 +25,9 @@
           <% @fav = Favorite.where(car_id: car.id, user_id: current_user.id).ids%>
           <md-button class='md-icon-button' ng-href="<%= user_favorite_path(current_user.id, @fav.first)%>" data-method="delete"><md-icon style="color: rgb(255, 82, 82);" md-font-set="material-icons">favorite</md-icon></md-button>
           <% end %>
+					<% if did_login? %>
           <md-button class='md-icon-button' ng-href="<%= car_path(car.id)%>"><md-icon md-font-set="material-icons">description</md-icon></md-button>
+					<% end %>
           <% if did_login? &&  current_user.isadmin == true%>
           <md-button class='md-icon-button' ng-href="<%= car_path(car.id)%>" data-method="delete"><md-icon md-font-set="material-icons">delete</md-icon></md-button>
     			<% end %>
