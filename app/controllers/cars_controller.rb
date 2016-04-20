@@ -75,7 +75,7 @@ class CarsController < ApplicationController
     if params[:issold] == "false"
       @car.update(issold: true)
     end
-    redirect_to cars_path
+    redirect_to car_path(@car)
   end
   def search
 		@cars = Car.all
