@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
 		self.email = email.downcase
 		self.username = username.downcase
 	}
+	before_destroy {
+		cars = self.cars.delete_all
+	}
   validates :username, presence: true, length: { maximum: 20 },
 	uniqueness: { case_sensitive: false }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

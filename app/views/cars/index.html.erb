@@ -27,30 +27,42 @@
 			</div>
 	<%end%>
 
-
-
 		</md-card>
 
 		<md-card layout-padding>
 			<div layout="column" layout-xs="row" layout-wrap>
-			<md-chips readonly="ctrl.readonly">
-				<md-chip>Apple</md-chip>
-				<md-chip>Apple</md-chip>
-				<md-chip>Apple</md-chip>
-				<md-chip>Apple</md-chip>
-				<md-chip>Apple</md-chip>
-				<md-chip>Apple</md-chip>
-				<md-chip>Apple</md-chip>
-				<md-chip>Apple</md-chip>
-			</md-chips>
-			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 0}.to_param %>">Post Date \</md-button>
-			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 7}.to_param %>">Make/Model</md-button>
-			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 1}.to_param %>">Price \</md-button>
-			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 2}.to_param %>">Price /</md-button>
-			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 3}.to_param %>">Mileage \</md-button>
-			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 4}.to_param %>">Mileage /</md-button>
-			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 5}.to_param %>">Year \</md-button>
-			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 6}.to_param %>">Year /</md-button>
+			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 0}.to_param %>">
+			Post Date
+			<md-icon md-font-set="material-icons">trending_down</md-icon>
+			</md-button>
+			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 7}.to_param %>">
+			Make/Mode
+			<md-icon md-font-set="material-icons">trending_up</md-icon>
+			</md-button>
+			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 1}.to_param %>">
+			Price
+			<md-icon md-font-set="material-icons">trending_down</md-icon>
+			</md-button>
+			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 2}.to_param %>">
+			Price
+			<md-icon md-font-set="material-icons">trending_up</md-icon>
+			</md-button>
+			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 3}.to_param %>">
+			Mileage
+			<md-icon md-font-set="material-icons">trending_down</md-icon>
+			</md-button>
+			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 4}.to_param %>">
+			Mileage
+			<md-icon md-font-set="material-icons">trending_up</md-icon>
+			</md-button>
+			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 5}.to_param %>">
+			Year
+			<md-icon md-font-set="material-icons">trending_down</md-icon>
+			</md-button>
+			<md-button class="md-raised" ng-href="<%= cars_path + "?" + {sort: 6}.to_param %>">
+			Year
+			<md-icon md-font-set="material-icons">trending_up</md-icon>
+			</md-button>
 			</div>
 
 		</md-card>
@@ -64,25 +76,3 @@
 
   <div flex="10" hide-xs hide-sm></div>
 </div>
-
-  <md-fab-toolbar md-open="demo.isOpen" count="demo.count"
-                  md-direction="{{demo.selectedDirection}}">
-    <md-fab-trigger class="align-with-text">
-      <md-button aria-label="menu" class="md-fab md-primary">
-A
-      </md-button>
-    </md-fab-trigger>
-    <md-toolbar>
-      <md-fab-actions class="md-toolbar-tools">
-        <md-button aria-label="comment" class="md-icon-button">
-B
-        </md-button>
-        <md-button aria-label="label" class="md-icon-button">
-C
-        </md-button>
-        <md-button aria-label="photo" class="md-icon-button">
-E
-        </md-button>
-      </md-fab-actions>
-    </md-toolbar>
-  </md-fab-toolbar>

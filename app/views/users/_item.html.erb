@@ -4,9 +4,15 @@
 <div flex layout-padding>
 <% @users.each do |user| %>
 			<md-list flex>
-        <md-list-item class="md-1-line" ng-cloak>
-					<%= user.username%><br>
-					<%= user.email%>
+        <md-list-item class="md-2-line" ng-cloak>
+					<div class="md-list-item-text" layout="column">
+						<div><md-icon md-font-set="material-icons">person</md-icon> <%= user.username%>
+						</div>
+						<div><md-icon md-font-set="material-icons">mail_outline</md-icon> <%= user.email%></div>
+          </div>
+					<% if user.isadmin==true %>
+						<span class="admin">admin</span>
+					<% end %>
 					<div flex></div>
 <md-fab-speed-dial md-direction="left" class="md-fling">
   <md-fab-trigger>
@@ -23,10 +29,10 @@
 		<md-button ng-href="<%=user_path(user.id,:isadmin => user.isadmin)%>" data-method="patch" class="md-fab md-mini md-ink-ripple">
       <% if user.isadmin==true%>
 			<md-icon md-font-set="material-icons">file_download</md-icon>
-			<md-tooltip md-direction="top">Admin</md-tooltip>
+			<md-tooltip md-direction="top">Unset Admin</md-tooltip>
       <% else %>
 			<md-icon md-font-set="material-icons">file_upload</md-icon>
-			<md-tooltip md-direction="top">DelAdmin</md-tooltip>
+			<md-tooltip md-direction="top">Set Admin</md-tooltip>
      <% end %>
  	</md-button>
 

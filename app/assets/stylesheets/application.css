@@ -56,3 +56,22 @@ div {
 md-input-container .md-errors-spacer {
 	min-height: 0;
 }
+
+#filename {
+	padding-top: 15px;
+}
+
+span.admin {
+	position: absolute;
+	top: 22px;
+	left: 200px;
+	padding: 2px 5px;
+	border-radius: 10px;
+	background: #3F51B5;
+	color: #E8EAF6;
+}
+
+div.md-media-lg.card-media {
+	width: 250px;
+	height: 250px;
+}
