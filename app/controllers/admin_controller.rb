@@ -4,10 +4,10 @@ class AdminController < ApplicationController
 		if did_login?
 			if current_user.isadmin
 				@cars = Car.all.order(created_at: :desc)
-			else 
+			else
 				redirect_to root_path
 			end
-		else 
+		else
 			redirect_to login_path
 		end
   end
@@ -16,10 +16,10 @@ class AdminController < ApplicationController
 		if did_login?
 			if current_user.isadmin
 				@users = User.all.order(created_at: :desc)
-			else 
+			else
 				redirect_to root_path
 			end
-		else 
+		else
 			redirect_to login_path
 		end
 	end
