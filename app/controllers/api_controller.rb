@@ -41,4 +41,16 @@ class ApiController < ApplicationController
       render :json => @comments
     end
   end
+
+	def login
+		@username = params[:username]
+		@password = params[:password]
+
+    @user = User.find_by(username: @username.downcase)
+    if @user && @user.authenticate(@password)
+			render :json => {"success" => 1, "id" => @user.id}
+		else 
+			render :json => {"success" => 0}
+		end
+	end
 end
