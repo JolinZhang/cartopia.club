@@ -60,7 +60,7 @@ class ApiController < ApplicationController
     if @user.save
       render :json =>{"success" => 1, "id" => @user.id }
     else
-      render :json = {"success" => 0 }
+      render :json =>{"success" => 0 }
     end
   end
 end
