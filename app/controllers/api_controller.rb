@@ -55,7 +55,15 @@ class ApiController < ApplicationController
 	end
 
   def signup
-    @user = User.new(params.require(:user).permit(:username, :email, :password, :password_confirmation))
+    @username = params[:username]
+    @email = params[:email]
+		@password = params[:password]
+    @password_confirmation = params[:password_confirmation]
+    @user = User.new()
+    @user.username = @username
+    @user.email = @email
+    @user.password = @password
+    @user.password_confirmation = @password_confirmation
     @user.isadmin = false
     if @user.save
       render :json =>{"success" => 1, "id" => @user.id }
