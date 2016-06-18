@@ -49,8 +49,18 @@ class ApiController < ApplicationController
     @user = User.find_by(username: @username.downcase)
     if @user && @user.authenticate(@password)
 			render :json => {"success" => 1, "id" => @user.id}
-		else 
+		else
 			render :json => {"success" => 0}
 		end
 	end
+  
+  def signup
+    @user = User.new(params.require(:user).permit(:username, :email, :password, :password_confirmation))
+    @user.isadmin = false
+    if @user.save
+      render :json =>{"success" => 1, "id" => @user.id }
+    else
+      render :json = {"success" =>0}
+    end
+  end
 end

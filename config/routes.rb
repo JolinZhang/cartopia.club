@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   get '/api/favs'  =>'api#favs'
   get '/api/comments' =>'api#comments'
 	get '/api/login' => 'api#login'
-
+  post '/api/signup' => 'api#signup'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
