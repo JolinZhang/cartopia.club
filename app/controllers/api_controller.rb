@@ -17,7 +17,7 @@ class ApiController < ApplicationController
       @cars = Car.where(id: params[:id])
       render :json => @cars
     else
-      @cars = Car.all.order(created_at: :desc)
+      @cars = Car.where(issold: false).order(created_at: :desc)
       render :json => @cars
     end
   end
@@ -71,4 +71,29 @@ class ApiController < ApplicationController
       render :json =>{"success" => 0 }
     end
   end
+
+  def sort
+    @sort = params[:sort]
+    case @sort
+			when '0'
+				@cars = Car.where(issold: false).order(:created_at)
+      when '1'
+	      @cars = Car.where(issold: false).order(created_at: :desc)
+      when '2'
+        @cars = Car.where(issold: false).order(:price)
+      when '3'
+			  @cars = Car.where(issold: false).order(price: :desc)
+      when '4'
+        @cars = Car.where(issold: false).order(:mileage)
+			when '5'
+				@cars = Car.where(issold: false).order(mileage: :desc)
+      when '6'
+        @cars = Car.where(issold: false).order(:year)
+			when '7'
+				@cars = Car.where(issold: false).order(year: :desc)
+			else
+				@cars = Car.where(issold: false).order(created_at: :desc)
+		end
+  end
+
 end
