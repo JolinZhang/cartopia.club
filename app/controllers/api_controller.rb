@@ -77,22 +77,31 @@ class ApiController < ApplicationController
     case @sort
 			when '0'
 				@cars = Car.where(issold: false).order(:created_at)
+        render :json => @cars
       when '1'
 	      @cars = Car.where(issold: false).order(created_at: :desc)
+        render :json => @cars
       when '2'
         @cars = Car.where(issold: false).order(:price)
+        render :json => @cars
       when '3'
 			  @cars = Car.where(issold: false).order(price: :desc)
+        render :json => @cars
       when '4'
         @cars = Car.where(issold: false).order(:mileage)
+        render :json => @cars
 			when '5'
 				@cars = Car.where(issold: false).order(mileage: :desc)
+        render :json => @cars
       when '6'
         @cars = Car.where(issold: false).order(:year)
+        render :json => @cars
 			when '7'
 				@cars = Car.where(issold: false).order(year: :desc)
+        render :json => @cars
 			else
 				@cars = Car.where(issold: false).order(created_at: :desc)
+        render :json => @cars
 		end
   end
 
