@@ -105,4 +105,32 @@ class ApiController < ApplicationController
 		end
   end
 
+  def create
+    @year= params[:year]
+    @make = params[:make]
+		@model = params[:model]
+    @mileage = params[:mileage]
+    @price = params[:price]
+    @contact = params[:contact]
+    @city = params[:city]
+    @state = params[:state]
+    @notes = params[:notes]
+    @user_id = params[:user_id]
+    @car = Car.new()
+    @car.year = @year
+    @car.make = @make
+    @car.model = @model
+    @car.mileage = @mileage
+    @car.price = @price
+    @car.contact = @contact
+    @car.city = @city
+    @car.state = @state
+    @car.notes = @notes
+    @car.user_id = @user_id
+		@car.issold = false
+    @car.picture = 'default.jpg'
+    @car.save
+    render :json => @car
+  end
+
 end

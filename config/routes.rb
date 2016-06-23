@@ -32,11 +32,13 @@ Rails.application.routes.draw do
   # api
   get '/api/users' =>'api#users'
   get '/api/cars'  =>'api#cars'
+  post '/api/cars' => 'api#create'
   get '/api/favs'  =>'api#favs'
   get '/api/comments' =>'api#comments'
 	get '/api/login' => 'api#login'
   get '/api/signup' => 'api#signup'
   get '/api/sort' => 'api#sort'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
