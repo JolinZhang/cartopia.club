@@ -38,6 +38,7 @@ Rails.application.routes.draw do
 	get '/api/login' => 'api#login'
   get '/api/signup' => 'api#signup'
   get '/api/sort' => 'api#sort'
+  post '/api/photos' =>'api#photos'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

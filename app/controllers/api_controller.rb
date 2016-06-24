@@ -129,8 +129,14 @@ class ApiController < ApplicationController
     @car.user_id = @user_id
 		@car.issold = false
     @car.picture = 'default.jpg'
-    @car.save
-    render :json => @car
+    if @car.save
+      render :json =>{"success" => 1, "car_id" => @car.id }
+    else
+      render :json =>{"success" => 0 }
+    end
+  end
+  
+  def photos
   end
 
 end
