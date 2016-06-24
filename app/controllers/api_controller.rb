@@ -132,13 +132,15 @@ class ApiController < ApplicationController
     if params[:picture].empty?
       @car.picture = 'default.jpg'
     else
-      @car.picture = @car.user_id.to_s+"-"+@car.id.to_s+".jpg"
+      file_name = @car.user_id.to_s+"-"+@car.id.to_s+".jpg"
+      File.open(Rails.root.join('app','assets','images','user_car',file_name), 'wb') do|f|
+        f.write(Base64.decode64(params[:picture])
+      end
+      @car.picture = file_name
     end
     @car.save
     render :json => @car
   end
 
-  def photos
-  end
 
 end
