@@ -128,7 +128,12 @@ class ApiController < ApplicationController
     @car.notes = @notes
     @car.user_id = @user_id
 		@car.issold = false
-    @car.picture = 'default.jpg'
+    @car.save
+    if params[:picture].empty?
+      @car.picture = 'default.jpg'
+    else
+      @car.picture = @car.user_id.to_s+"-"+@car.id.to_s+".jpg"
+    end
     @car.save
     render :json => @car
   end
