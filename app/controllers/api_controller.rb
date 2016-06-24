@@ -134,7 +134,7 @@ class ApiController < ApplicationController
     else
       file_name = @car.user_id.to_s+"-"+@car.id.to_s+".jpg"
       File.open(Rails.root.join('app','assets','images','user_car',file_name), 'wb') do|f|
-        f.write(Base64.decode64(params[:picture])
+        f.write(Base64.decode64(params[:picture]))
       end
       @car.picture = file_name
     end
