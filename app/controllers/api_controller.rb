@@ -15,7 +15,8 @@ class ApiController < ApplicationController
       render :json => @cars
     elsif  params[:id] != nil
       @cars = Car.where(id: params[:id])
-      render :json => @cars
+      @user = @cars[0].user.username
+      render :json => {"car" => @cars, "user_name" => @user}
     else
       @cars = Car.where(issold: false).order(created_at: :desc)
       render :json => @cars
