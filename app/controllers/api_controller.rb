@@ -1,7 +1,7 @@
 class ApiController < ApplicationController
   def users
     if params[:id] != nil
-      @users = User.where(id: params[:id]).order(created_at: :desc)
+      @users = User.where(id: params[:id])
       render :json => @users
     else
     	@users = User.all.order(created_at: :desc)
