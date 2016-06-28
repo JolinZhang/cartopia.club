@@ -36,7 +36,12 @@ class ApiController < ApplicationController
   def comments
     if params[:car_id] != nil
       @comments = Comment.where(car_id: params[:car_id]).order(created_at: :desc)
-      render :json => @comments
+      myhash = []
+      @comments.each do |comment|
+        @user = comment.user.username
+        myhash << {"comments" => comment ,"user_name" => @user}
+      end
+      render :json => myhash
     else
       @comments = Comment.all
       render :json => @comments
