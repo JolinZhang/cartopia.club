@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   # api
   get '/api/users' =>'api#users'
   get '/api/cars'  =>'api#cars'
+  get '/api/carsfavs' => 'api#carsfavs'
   post '/api/cars' => 'api#create'
   get '/api/favs'  =>'api#favs'
   post '/api/favs' => 'api#createfavs'
