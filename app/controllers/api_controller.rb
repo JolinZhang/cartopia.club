@@ -53,8 +53,11 @@ def createfavs
     @favorite = Favorite.new()
     @favorite.user_id = @user_id
     @favorite.car_id = @car_id
-    @favorite.save
-    render :json => @favorite
+    if @favorite.save
+      render :json =>{"success" => 1 }
+    else
+      render :json =>{"success" => 0 }
+    end
 end
 # show comment of a car
   def comments
