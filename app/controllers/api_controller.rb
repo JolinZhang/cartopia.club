@@ -26,7 +26,12 @@ class ApiController < ApplicationController
   def favs
     if params[:user_id] != nil
       @favs = Favorite.where(user_id: params[:user_id]).order(created_at: :desc)
-      render :json => @favs
+      favcar = []
+      @favs.each do |fav|
+        @car = fav.car_id
+        favcar << { "car_id" =>  @car}
+      end
+      render :json => { "count" => @favs.count, "car" => favcar }
     else
       @favs = Favorite.all.order(created_at: :desc)
       render :json => @favs
