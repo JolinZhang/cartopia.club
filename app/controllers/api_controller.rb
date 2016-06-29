@@ -33,6 +33,18 @@ class ApiController < ApplicationController
     end
   end
 
+def createfavs
+    @user_id = params[:user_id]
+    @car_id = params[:car_id]
+    @favorite = Favorite.new()
+    @favorite.user_id = @user_id
+    @favorite.car_id = @car_id
+    @favorite.save
+    render :json => @favorite
+end
+
+
+
   def comments
     if params[:car_id] != nil
       @comments = Comment.where(car_id: params[:car_id]).order(created_at: :desc)
