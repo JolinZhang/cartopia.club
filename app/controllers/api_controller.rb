@@ -31,21 +31,32 @@ def carsfavs
     end
     render :json => myfav
 end
+# delete favs
+def favsdestroy
+  @user_id = params[:user_id]
+  @car_id = params[:car_id]
+  @fav = Favorite.where(car_id:  @car_id, user_id: @user_id)
+  if @fav.destroy_all
+    render :json =>{"success" => 2 }
+  else
+    render :json =>{"success" => 0 }
+  end
+end
 
-  # def favs
-  #   if params[:user_id] != nil
-  #     @favs = Favorite.where(user_id: params[:user_id]).order(created_at: :desc)
-  #     favcar = []
-  #     @favs.each do |fav|
-  #       @car = fav.car_id
-  #       favcar << { "car_id" =>  @car}
-  #     end
-  #     render :json => { "count" => @favs.count, "car" => favcar }
-  #   else
-  #     @favs = Favorite.all.order(created_at: :desc)
-  #     render :json => @favs
-  #   end
-  # end
+  def favs
+    if params[:user_id] != nil
+      @favs = Favorite.where(user_id: params[:user_id]).order(created_at: :desc)
+      favcar = []
+      @favs.each do |fav|
+        @car = fav.car_id
+        favcar << { "car_id" =>  @car}
+      end
+      render :json => { "count" => @favs.count, "car" => favcar }
+    else
+      @favs = Favorite.all.order(created_at: :desc)
+      render :json => @favs
+    end
+  end
 # create favs for a user and car
 def createfavs
     @user_id = params[:user_id]
