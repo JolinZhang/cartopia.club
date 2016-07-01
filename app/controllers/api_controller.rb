@@ -42,16 +42,19 @@ def favsdestroy
     render :json =>{"success" => 0 }
   end
 end
-
+# show info in favs
   def favs
     if params[:user_id] != nil
       @favs = Favorite.where(user_id: params[:user_id]).order(created_at: :desc)
       favcar = []
       @favs.each do |fav|
         @car = fav.car_id
-        favcar << { "car_id" =>  @car}
+        @car_info = Car.where(id: @car)
+        @user = fav.user_id
+        @user_name = User.where(id: @user)
+        favcar << fav.as_json.merge(:user_name => @user_name[0].username, :car_info => @car_info[0] )
       end
-      render :json => { "count" => @favs.count, "car" => favcar }
+      render :json => { "count" => @favs.count, "favs" => favcar}
     else
       @favs = Favorite.all.order(created_at: :desc)
       render :json => @favs
