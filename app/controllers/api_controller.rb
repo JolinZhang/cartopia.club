@@ -52,7 +52,7 @@ end
         @car_info = Car.where(id: @car)
         @user = fav.user_id
         @user_name = User.where(id: @user)
-        favcar << fav.as_json.merge(:user_name => @user_name[0].username, :car_info => @car_info[0] )
+        favcar << fav.as_json.merge(:user_name => @user_name[0].username, :picture => @car_info[0].picture, )
       end
       render :json => { "count" => @favs.count, "favs" => favcar}
     else
