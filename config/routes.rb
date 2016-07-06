@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   get '/api/favdestroy' => 'api#favsdestroy'
   post '/api/favs' => 'api#createfavs'
   get '/api/comments' =>'api#comments'
+  post '/api/comments' => 'api#createcomments'
 	get '/api/login' => 'api#login'
   post '/api/signup' => 'api#signup'
   get '/api/sort' => 'api#sort'

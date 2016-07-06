@@ -73,6 +73,23 @@ def createfavs
       render :json =>{"success" => 0 }
     end
 end
+
+# create comments
+def createcomments
+    @car_id = params[:car_id]
+    @user_id= params[:user_id]
+    @content = params[:content]
+    @comment = Comment.new()
+    @comment.user_id = @user_id
+    @comment.car_id = @car_id
+    @comment.content = @content
+    if @comment.save
+      render :json => {"success" => 1}
+    else
+      render :json => {"success" => 0}
+    end
+end
+
 # show comment of a car
   def comments
     if params[:car_id] != nil
@@ -87,7 +104,7 @@ end
       @comments = Comment.all
       render :json => @comments
     end
-  end
+end
 # login for a user
 	def login
 		@username = params[:username]
