@@ -23,6 +23,15 @@ Things you may want to cover:
 
 * ...
 
-
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+### Description of used car sale website
+
+- view through url‘cartopia.club’
+- use Angular Material for Front-end design and ruby on rails for the back-end design. 
+- include seven blocks: Buy, Sell, Info, User info, Login in and Sign up. 
+- two users:Guests and administrators
+
+
+
