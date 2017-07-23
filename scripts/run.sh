@@ -1,7 +1,6 @@
 docker run \
 -d \
 --name cartopia \
--p 3000:3000 \
 -v `pwd`/:/cartopia.club/ \
 -w /cartopia.club \
 ruby:2.3.0 \
