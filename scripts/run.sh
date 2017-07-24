@@ -6,7 +6,7 @@ docker run \
 -v $SCRIPTPATH/:/cartopia.club/ \
 -w /cartopia.club \
 ruby:2.3.0 \
-sh -c \
+/bin/sh -c \
 "\
 apt-get update;\
 apt-get install nodejs -y;\
