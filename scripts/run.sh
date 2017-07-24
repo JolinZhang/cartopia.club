@@ -1,7 +1,9 @@
+SCRIPT=`readlink -f "$0"`
+SCRIPTPATH=`dirname "$SCRIPT"`
 docker run \
 -d \
 --name cartopia \
--v `pwd`/:/cartopia.club/ \
+-v $SCRIPTPATH/:/cartopia.club/ \
 -w /cartopia.club \
 ruby:2.3.0 \
 sh -c \
