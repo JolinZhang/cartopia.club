@@ -13,5 +13,6 @@ apt-get update;\
 apt-get install nodejs -y;\
 bundle install;\
 bin/rake db:migrate RAILS_ENV=development;\
+rm /cartopia.club/tmp/pids/server.pid;\
 rails server -b 0.0.0.0;\
 "
