@@ -1,6 +1,7 @@
 docker run \
 -d \
 --name cartopia \
+--network GoldenArches \
 -v `pwd`/:/cartopia.club/ \
 -w /cartopia.club \
 shaneqi/cartopia:latest \
